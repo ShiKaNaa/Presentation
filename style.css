@@ -1,5 +1,5 @@
 /* Import Premium Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Outfit:wght@300;400;600;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Outfit:wght@300;400;600;800&family=Caveat:wght@600&display=swap');
 
 /* --- Design Tokens / System --- */
 :root {
@@ -707,6 +707,115 @@ p {
   color: var(--text-primary);
 }
 
+/* --- Polaroid Cards & Galleries --- */
+.polaroid-gallery {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  width: 100%;
+  margin-top: 1.5rem;
+  perspective: 1000px;
+}
+
+.polaroid-card {
+  background: #ffffff;
+  padding: 12px 12px 28px 12px;
+  border-radius: 4px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4), 0 2px 5px rgba(0, 0, 0, 0.3);
+  width: 260px;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+  position: relative;
+  cursor: pointer;
+  transform: rotate(var(--rotation, 0deg));
+}
+
+.polaroid-card:hover {
+  transform: scale(1.08) rotate(0deg) translateY(-15px);
+  z-index: 50;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6), 0 5px 15px rgba(157, 78, 221, 0.25);
+}
+
+.polaroid-image-container {
+  width: 100%;
+  aspect-ratio: 16 / 9; /* Landscape representation of the rotated image */
+  overflow: hidden;
+  position: relative;
+  background: #111;
+  border: 1px solid #ddd;
+}
+
+.polaroid-image-container img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /* 9:16 portrait image rotated 90deg to visually fit as 16:9 landscape */
+  width: 56.25%; /* (9/16) * 100% */
+  height: 177.77%; /* (16/9) * 100% */
+  transform: translate(-50%, -50%) rotate(90deg);
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.polaroid-caption {
+  font-family: 'Caveat', cursive;
+  font-size: 1.35rem;
+  color: #1a202c;
+  text-align: center;
+  margin-top: 12px;
+  line-height: 1.2;
+}
+
+/* Fanning gallery layout for family memories */
+.fanning-gallery {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 320px;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.fanning-gallery .polaroid-card {
+  position: absolute;
+}
+
+.fanning-gallery .polaroid-card:nth-child(1) {
+  --rotation: -8deg;
+  left: calc(50% - 320px);
+}
+
+.fanning-gallery .polaroid-card:nth-child(2) {
+  --rotation: 2deg;
+  left: calc(50% - 130px);
+  z-index: 10;
+}
+
+.fanning-gallery .polaroid-card:nth-child(3) {
+  --rotation: 10deg;
+  left: calc(50% + 60px);
+}
+
+.fanning-gallery .polaroid-card:hover {
+  z-index: 100 !important;
+}
+
+/* Layout for Childhood diapo */
+.childhood-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.childhood-text {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(var(--glass-blur));
+  padding: 2.5rem;
+  border-radius: 20px;
+}
+
 /* --- Responsive Adjustments --- */
 @media (max-width: 900px) {
   .about-grid {
@@ -717,6 +826,35 @@ p {
   .hobbies-grid {
     grid-template-columns: 1fr;
     gap: 1.2rem;
+  }
+
+  .polaroid-gallery {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+  
+  .fanning-gallery {
+    height: auto;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+    margin-top: 1.5rem;
+  }
+  
+  .fanning-gallery .polaroid-card {
+    position: static;
+    --rotation: 0deg !important;
+  }
+  
+  .childhood-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .polaroid-card {
+    width: 240px;
+    padding: 10px 10px 24px 10px;
   }
   
   .timeline::before {

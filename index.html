@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="An interactive presentation built with custom CSS transitions. Learn more about me, my journey, and my passions.">
-  <title>About Me | Interactive CSS Presentation</title>
+  <meta name="description" content="Une présentation interactive conçue avec des transitions CSS personnalisées. Découvrez mon parcours, mes souvenirs et mes passions.">
+  <title>À propos de moi | Présentation CSS Interactive</title>
   
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="style.css">
@@ -23,14 +23,14 @@
 
   <!-- Top Header Navigation -->
   <header class="top-header">
-    <a href="#" class="logo">&lt; Raphael /&gt;</a>
+    <a href="#" class="logo">&lt; Raphaël /&gt;</a>
     
     <!-- Transition Selection Feature -->
     <div class="transition-picker" style="pointer-events: auto;">
-      <span class="transition-chip active" data-transition="slide">Slide</span>
-      <span class="transition-chip" data-transition="fade">Fade</span>
+      <span class="transition-chip active" data-transition="slide">Glissement</span>
+      <span class="transition-chip" data-transition="fade">Fondu</span>
       <span class="transition-chip" data-transition="zoom">Zoom</span>
-      <span class="transition-chip" data-transition="flip">3D Flip</span>
+      <span class="transition-chip" data-transition="flip">Rotation 3D</span>
     </div>
   </header>
 
@@ -40,63 +40,95 @@
     <!-- SLIDE 1: Welcome Hero -->
     <section class="slide active" id="slide-1">
       <div class="slide-content hero-wrapper">
-        <div class="mono-tag animate-down" style="--delay: 0.1s;">Hello World</div>
+        <div class="mono-tag animate-down" style="--delay: 0.1s;">Bonjour le monde</div>
         <h1 class="hero-title animate-scale" style="--delay: 0.3s;">
-          Hey, I'm <span class="text-gradient">Raphaël</span>
+          Salut, je suis <span class="text-gradient">Raphaël</span>
         </h1>
         <p class="hero-subtitle animate-up" style="--delay: 0.5s;">
-          A passionate software developer who loves crafting beautiful, high-performance web experiences. Welcome to my story.
+          Un développeur créatif passionné par les interfaces interactives, les animations fluides et le partage de belles histoires. Bienvenue dans mes souvenirs.
         </p>
         <div class="animate-up" style="--delay: 0.7s;">
-          <button class="nav-btn next-trigger" aria-label="Start presentation">
+          <button class="nav-btn next-trigger" aria-label="Commencer la présentation">
             <svg viewBox="0 0 24 24"><path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42L16.86 11H5v2z"/></svg>
           </button>
         </div>
       </div>
     </section>
 
-    <!-- SLIDE 2: About Me -->
+    <!-- SLIDE 2: Mon Enfance -->
     <section class="slide" id="slide-2">
       <div class="slide-content">
-        <h2 class="animate-left" style="--delay: 0.1s;">
-          About <span class="text-gradient-secondary">Me</span>
-        </h2>
-        <div class="about-grid">
-          <div class="bio-card animate-scale" style="--delay: 0.3s;">
+        <div class="childhood-layout">
+          <div class="childhood-text animate-left" style="--delay: 0.1s;">
+            <h2>Mon <span class="text-gradient-secondary">Enfance</span></h2>
             <p>
-              I am a creative technologist focused on creating elegant, highly interactive frontend interfaces. I believe code is a medium for art and expression, and websites should feel tactile, fast, and responsive.
+              Né et grandi dans un cadre familial chaleureux, j'ai développé très tôt une grande curiosité pour le monde qui m'entoure. Qu'il s'agisse de mes premiers pas sous les flocons de neige dans le jardin ou de moments de pur bonheur partagés, mon enfance a jeté les bases de ma créativité et de mon imagination.
             </p>
             <p style="margin-bottom: 0;">
-              Currently, I'm building tools that bridge the gap between design and engineering, combining clean typography, robust architectures, and physics-based animations.
+              Chaque souvenir, capturé sur le vif, raconte une époque de découverte et de complicité simple.
             </p>
           </div>
-          <div class="stats-grid">
-            <div class="stat-item animate-right" style="--delay: 0.4s;">
-              <div class="stat-num">Paris</div>
-              <div class="stat-label">Location</div>
+          <div class="polaroid-gallery animate-scale" style="--delay: 0.3s;">
+            <!-- Polaroid 1: Neige -->
+            <div class="polaroid-card" style="--rotation: -4deg;">
+              <div class="polaroid-image-container">
+                <img src="images/media__1784741299916.jpg" alt="Première neige dans le jardin">
+              </div>
+              <div class="polaroid-caption">Première neige (1998)</div>
             </div>
-            <div class="stat-item animate-right" style="--delay: 0.5s;">
-              <div class="stat-num">Web</div>
-              <div class="stat-label">Focus Area</div>
-            </div>
-            <div class="stat-item animate-right" style="--delay: 0.6s;">
-              <div class="stat-num">3+ Yrs</div>
-              <div class="stat-label">Experience</div>
-            </div>
-            <div class="stat-item animate-right" style="--delay: 0.7s;">
-              <div class="stat-num">100%</div>
-              <div class="stat-label">Coffee Built</div>
+            <!-- Polaroid 2: Bain -->
+            <div class="polaroid-card" style="--rotation: 5deg;">
+              <div class="polaroid-image-container">
+                <img src="images/media__1784741299956.jpg" alt="L'heure du bain complice">
+              </div>
+              <div class="polaroid-caption">Complices du bain</div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SLIDE 3: My Journey Timeline -->
+    <!-- SLIDE 3: Souvenirs de Famille -->
     <section class="slide" id="slide-3">
+      <div class="slide-content" style="align-items: center; text-align: center;">
+        <h2 class="animate-down" style="--delay: 0.1s; margin-bottom: 1rem;">
+          Souvenirs de <span class="text-gradient">Famille</span>
+        </h2>
+        <p class="animate-up" style="--delay: 0.3s; max-width: 700px; margin-bottom: 2rem;">
+          Les fêtes de fin d'année, les éclats de rire autour d'une grande table, la galette des rois et les gâteaux d'anniversaire... Ces moments de célébration partagés en famille sont les repères de mon enfance.
+        </p>
+        
+        <div class="fanning-gallery animate-scale" style="--delay: 0.5s;">
+          <!-- Polaroid 3: Epiphanie -->
+          <div class="polaroid-card">
+            <div class="polaroid-image-container">
+              <img src="images/media__1784741299934.jpg" alt="Le jour des rois">
+            </div>
+            <div class="polaroid-caption">Couronné roi !</div>
+          </div>
+          <!-- Polaroid 4: Anniversaire Pose -->
+          <div class="polaroid-card">
+            <div class="polaroid-image-container">
+              <img src="images/media__1784741300033.jpg" alt="Pose devant le gâteau d'anniversaire">
+            </div>
+            <div class="polaroid-caption">Fêter chaque année</div>
+          </div>
+          <!-- Polaroid 5: Anniversaire Cake -->
+          <div class="polaroid-card">
+            <div class="polaroid-image-container">
+              <img src="images/media__1784741300041.jpg" alt="Célébration d'anniversaire">
+            </div>
+            <div class="polaroid-caption">Souffler les bougies</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 4: Mon Parcours -->
+    <section class="slide" id="slide-4">
       <div class="slide-content">
         <h2 class="animate-down" style="--delay: 0.1s; text-align: center; margin-bottom: 3rem;">
-          My <span class="text-gradient">Journey</span>
+          Mon <span class="text-gradient">Parcours</span>
         </h2>
         <div class="timeline">
           <!-- Timeline Item 1 -->
@@ -104,9 +136,9 @@
             <div class="timeline-dot"></div>
             <div class="timeline-card animate-left" style="--delay: 0.3s;">
               <div class="timeline-year">2020</div>
-              <h3 class="timeline-title">First Lines of Code</h3>
+              <h3 class="timeline-title">Premières lignes de code</h3>
               <p style="font-size: 0.95rem; margin-bottom: 0;">
-                Fell in love with HTML, CSS, and JS. Built small animations and simple offline apps.
+                Coup de foudre pour HTML, CSS et JavaScript. Conception de petites animations et d'applications simples.
               </p>
             </div>
           </div>
@@ -115,9 +147,9 @@
             <div class="timeline-dot"></div>
             <div class="timeline-card animate-right" style="--delay: 0.5s;">
               <div class="timeline-year">2022</div>
-              <h3 class="timeline-title">Going Professional</h3>
+              <h3 class="timeline-title">Professionnalisation</h3>
               <p style="font-size: 0.95rem; margin-bottom: 0;">
-                Started working with client projects, diving deep into frameworks, backend APIs, and UI styling.
+                Début des projets professionnels pour des clients, intégration des frameworks modernes et conception d'API.
               </p>
             </div>
           </div>
@@ -126,9 +158,9 @@
             <div class="timeline-dot"></div>
             <div class="timeline-card animate-left" style="--delay: 0.7s;">
               <div class="timeline-year">2024</div>
-              <h3 class="timeline-title">Creative Technology Focus</h3>
+              <h3 class="timeline-title">Technologie Créative</h3>
               <p style="font-size: 0.95rem; margin-bottom: 0;">
-                Shifted focus to rich visual design, custom render loops, SVG animations, and performance fine-tuning.
+                Orientation vers le design interactif haut de gamme, les animations physiques complexes et l'optimisation des performances.
               </p>
             </div>
           </div>
@@ -136,10 +168,10 @@
           <div class="timeline-item">
             <div class="timeline-dot"></div>
             <div class="timeline-card animate-right" style="--delay: 0.9s;">
-              <div class="timeline-year">Present</div>
-              <h3 class="timeline-title">Exploring the Edge</h3>
+              <div class="timeline-year">Présent</div>
+              <h3 class="timeline-title">Exploration Continue</h3>
               <p style="font-size: 0.95rem; margin-bottom: 0;">
-                Collaborating with teams internationally, building products, and exploring WebGL / WebGPU graphics.
+                Collaboration sur des projets internationaux d'envergure, création d'outils frontend et exploration des technologies graphiques WebGL/WebGPU.
               </p>
             </div>
           </div>
@@ -147,11 +179,11 @@
       </div>
     </section>
 
-    <!-- SLIDE 4: Hobbies & Passions -->
-    <section class="slide" id="slide-4">
+    <!-- SLIDE 5: Passions & Loisirs -->
+    <section class="slide" id="slide-5">
       <div class="slide-content">
         <h2 class="animate-left" style="--delay: 0.1s;">
-          Hobbies & <span class="text-gradient-secondary">Passions</span>
+          Passions & <span class="text-gradient-secondary">Loisirs</span>
         </h2>
         <div class="hobbies-grid">
           <!-- Card 1 -->
@@ -159,37 +191,37 @@
             <div class="hobby-icon">💻</div>
             <h3 class="hobby-title">Open Source</h3>
             <p style="font-size: 0.95rem; margin-bottom: 0;">
-              Contributing to dev packages, publishing custom templates, and experimenting with edge runtime environments.
+              Contribution à des paquets communautaires, publication de templates modernes et exploration des technologies d'optimisation.
             </p>
           </div>
           <!-- Card 2 -->
           <div class="hobby-card animate-up" style="--delay: 0.5s;">
             <div class="hobby-icon">📷</div>
-            <h3 class="hobby-title">Photography</h3>
+            <h3 class="hobby-title">Photographie</h3>
             <p style="font-size: 0.95rem; margin-bottom: 0;">
-              Capturing geometric alignments, architectural silhouettes, and shadows in urban exploration and travel.
+              Capture des lignes géométriques urbaines, des contrastes de lumière et des paysages durant mes explorations.
             </p>
           </div>
           <!-- Card 3 -->
           <div class="hobby-card animate-up" style="--delay: 0.7s;">
             <div class="hobby-icon">✈️</div>
-            <h3 class="hobby-title">Traveling</h3>
+            <h3 class="hobby-title">Voyages</h3>
             <p style="font-size: 0.95rem; margin-bottom: 0;">
-              Discovering quiet trails, historic cities, tasting local specialties, and learning other design values.
+              Découverte de nouvelles cultures, randonnées en pleine nature, dégustation de spécialités et inspiration graphique.
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SLIDE 5: Connect -->
-    <section class="slide" id="slide-5">
+    <!-- SLIDE 6: Contact -->
+    <section class="slide" id="slide-6">
       <div class="slide-content connect-content">
         <h2 class="animate-scale" style="--delay: 0.1s;">
-          Let's <span class="text-gradient">Connect</span>
+          Restons en <span class="text-gradient">Contact</span>
         </h2>
         <p class="animate-up" style="--delay: 0.3s; font-size: 1.3rem;">
-          Thanks for viewing my deck! I'd love to chat, collaborate on coding side-projects, or trade travel stories.
+          Merci d'avoir pris le temps de parcourir mes souvenirs et mon parcours ! J'adorerais discuter de projets web, de design ou simplement de voyages.
         </p>
         
         <div class="social-links animate-up" style="--delay: 0.5s;">
@@ -216,23 +248,23 @@
 
   <!-- Navigation Control Bar -->
   <footer class="controls-bar">
-    <button id="prevBtn" class="nav-btn" aria-label="Previous slide">
+    <button id="prevBtn" class="nav-btn" aria-label="Diapositive précédente">
       <svg viewBox="0 0 24 24"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/></svg>
     </button>
     
     <div class="slide-indicator">
       <span id="currentSlide" class="current">1</span>
-      <span class="total">/ 5</span>
+      <span class="total">/ 6</span>
     </div>
     
-    <button id="nextBtn" class="nav-btn" aria-label="Next slide">
+    <button id="nextBtn" class="nav-btn" aria-label="Diapositive suivante">
       <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
     </button>
   </footer>
 
   <!-- Floating Keyboard Hint -->
   <div class="keyboard-hint">
-    <span>Use <kbd>←</kbd> <kbd>→</kbd> or <kbd>Space</kbd> to explore</span>
+    <span>Utilisez <kbd>←</kbd> <kbd>→</kbd> ou <kbd>Espace</kbd> pour naviguer</span>
   </div>
 
   <!-- Javascript Core Engine -->
