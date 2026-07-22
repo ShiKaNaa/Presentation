@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="An interactive presentation built with custom CSS transitions. Learn more about me, my journey, and my passions.">
+  <title>About Me | Interactive CSS Presentation</title>
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Background Orbs and Mesh Grid -->
+  <div class="bg-overlay"></div>
+  <div class="glowing-orb orb-1"></div>
+  <div class="glowing-orb orb-2"></div>
+
+  <!-- Progress Bar -->
+  <div class="progress-bar-container">
+    <div id="progressBar" class="progress-bar"></div>
+  </div>
+
+  <!-- Top Header Navigation -->
+  <header class="top-header">
+    <a href="#" class="logo">&lt; Raphael /&gt;</a>
+    
+    <!-- Transition Selection Feature -->
+    <div class="transition-picker" style="pointer-events: auto;">
+      <span class="transition-chip active" data-transition="slide">Slide</span>
+      <span class="transition-chip" data-transition="fade">Fade</span>
+      <span class="transition-chip" data-transition="zoom">Zoom</span>
+      <span class="transition-chip" data-transition="flip">3D Flip</span>
+    </div>
+  </header>
+
+  <!-- Presentation Deck Container (default to slide transitions) -->
+  <main id="presentationDeck" class="presentation-container transition-slide">
+    
+    <!-- SLIDE 1: Welcome Hero -->
+    <section class="slide active" id="slide-1">
+      <div class="slide-content hero-wrapper">
+        <div class="mono-tag animate-down" style="--delay: 0.1s;">Hello World</div>
+        <h1 class="hero-title animate-scale" style="--delay: 0.3s;">
+          Hey, I'm <span class="text-gradient">Raphaël</span>
+        </h1>
+        <p class="hero-subtitle animate-up" style="--delay: 0.5s;">
+          A passionate software developer who loves crafting beautiful, high-performance web experiences. Welcome to my story.
+        </p>
+        <div class="animate-up" style="--delay: 0.7s;">
+          <button class="nav-btn next-trigger" aria-label="Start presentation">
+            <svg viewBox="0 0 24 24"><path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42L16.86 11H5v2z"/></svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 2: About Me -->
+    <section class="slide" id="slide-2">
+      <div class="slide-content">
+        <h2 class="animate-left" style="--delay: 0.1s;">
+          About <span class="text-gradient-secondary">Me</span>
+        </h2>
+        <div class="about-grid">
+          <div class="bio-card animate-scale" style="--delay: 0.3s;">
+            <p>
+              I am a creative technologist focused on creating elegant, highly interactive frontend interfaces. I believe code is a medium for art and expression, and websites should feel tactile, fast, and responsive.
+            </p>
+            <p style="margin-bottom: 0;">
+              Currently, I'm building tools that bridge the gap between design and engineering, combining clean typography, robust architectures, and physics-based animations.
+            </p>
+          </div>
+          <div class="stats-grid">
+            <div class="stat-item animate-right" style="--delay: 0.4s;">
+              <div class="stat-num">Paris</div>
+              <div class="stat-label">Location</div>
+            </div>
+            <div class="stat-item animate-right" style="--delay: 0.5s;">
+              <div class="stat-num">Web</div>
+              <div class="stat-label">Focus Area</div>
+            </div>
+            <div class="stat-item animate-right" style="--delay: 0.6s;">
+              <div class="stat-num">3+ Yrs</div>
+              <div class="stat-label">Experience</div>
+            </div>
+            <div class="stat-item animate-right" style="--delay: 0.7s;">
+              <div class="stat-num">100%</div>
+              <div class="stat-label">Coffee Built</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 3: My Journey Timeline -->
+    <section class="slide" id="slide-3">
+      <div class="slide-content">
+        <h2 class="animate-down" style="--delay: 0.1s; text-align: center; margin-bottom: 3rem;">
+          My <span class="text-gradient">Journey</span>
+        </h2>
+        <div class="timeline">
+          <!-- Timeline Item 1 -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card animate-left" style="--delay: 0.3s;">
+              <div class="timeline-year">2020</div>
+              <h3 class="timeline-title">First Lines of Code</h3>
+              <p style="font-size: 0.95rem; margin-bottom: 0;">
+                Fell in love with HTML, CSS, and JS. Built small animations and simple offline apps.
+              </p>
+            </div>
+          </div>
+          <!-- Timeline Item 2 -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card animate-right" style="--delay: 0.5s;">
+              <div class="timeline-year">2022</div>
+              <h3 class="timeline-title">Going Professional</h3>
+              <p style="font-size: 0.95rem; margin-bottom: 0;">
+                Started working with client projects, diving deep into frameworks, backend APIs, and UI styling.
+              </p>
+            </div>
+          </div>
+          <!-- Timeline Item 3 -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card animate-left" style="--delay: 0.7s;">
+              <div class="timeline-year">2024</div>
+              <h3 class="timeline-title">Creative Technology Focus</h3>
+              <p style="font-size: 0.95rem; margin-bottom: 0;">
+                Shifted focus to rich visual design, custom render loops, SVG animations, and performance fine-tuning.
+              </p>
+            </div>
+          </div>
+          <!-- Timeline Item 4 -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card animate-right" style="--delay: 0.9s;">
+              <div class="timeline-year">Present</div>
+              <h3 class="timeline-title">Exploring the Edge</h3>
+              <p style="font-size: 0.95rem; margin-bottom: 0;">
+                Collaborating with teams internationally, building products, and exploring WebGL / WebGPU graphics.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 4: Hobbies & Passions -->
+    <section class="slide" id="slide-4">
+      <div class="slide-content">
+        <h2 class="animate-left" style="--delay: 0.1s;">
+          Hobbies & <span class="text-gradient-secondary">Passions</span>
+        </h2>
+        <div class="hobbies-grid">
+          <!-- Card 1 -->
+          <div class="hobby-card animate-up" style="--delay: 0.3s;">
+            <div class="hobby-icon">💻</div>
+            <h3 class="hobby-title">Open Source</h3>
+            <p style="font-size: 0.95rem; margin-bottom: 0;">
+              Contributing to dev packages, publishing custom templates, and experimenting with edge runtime environments.
+            </p>
+          </div>
+          <!-- Card 2 -->
+          <div class="hobby-card animate-up" style="--delay: 0.5s;">
+            <div class="hobby-icon">📷</div>
+            <h3 class="hobby-title">Photography</h3>
+            <p style="font-size: 0.95rem; margin-bottom: 0;">
+              Capturing geometric alignments, architectural silhouettes, and shadows in urban exploration and travel.
+            </p>
+          </div>
+          <!-- Card 3 -->
+          <div class="hobby-card animate-up" style="--delay: 0.7s;">
+            <div class="hobby-icon">✈️</div>
+            <h3 class="hobby-title">Traveling</h3>
+            <p style="font-size: 0.95rem; margin-bottom: 0;">
+              Discovering quiet trails, historic cities, tasting local specialties, and learning other design values.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 5: Connect -->
+    <section class="slide" id="slide-5">
+      <div class="slide-content connect-content">
+        <h2 class="animate-scale" style="--delay: 0.1s;">
+          Let's <span class="text-gradient">Connect</span>
+        </h2>
+        <p class="animate-up" style="--delay: 0.3s; font-size: 1.3rem;">
+          Thanks for viewing my deck! I'd love to chat, collaborate on coding side-projects, or trade travel stories.
+        </p>
+        
+        <div class="social-links animate-up" style="--delay: 0.5s;">
+          <!-- GitHub Link -->
+          <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-btn">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482C19.138 20.197 22 16.44 22 12.017 22 6.484 17.522 2 12 2z"/></svg>
+            GitHub
+          </a>
+          <!-- LinkedIn Link -->
+          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-btn">
+            <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            LinkedIn
+          </a>
+          <!-- Email Link -->
+          <a href="mailto:hello@example.com" class="social-btn">
+            <svg viewBox="0 0 24 24"><path d="M12 12.713L4.41 7.29A2 2 0 016 7h12a2 2 0 011.59.29L12 12.713zM21 9.287L12.74 15.2a1.2 1.2 0 01-1.48 0L3 9.287V17a2 2 0 002 2h14a2 2 0 002-2V9.287z"/></svg>
+            Email
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Navigation Control Bar -->
+  <footer class="controls-bar">
+    <button id="prevBtn" class="nav-btn" aria-label="Previous slide">
+      <svg viewBox="0 0 24 24"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/></svg>
+    </button>
+    
+    <div class="slide-indicator">
+      <span id="currentSlide" class="current">1</span>
+      <span class="total">/ 5</span>
+    </div>
+    
+    <button id="nextBtn" class="nav-btn" aria-label="Next slide">
+      <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+    </button>
+  </footer>
+
+  <!-- Floating Keyboard Hint -->
+  <div class="keyboard-hint">
+    <span>Use <kbd>←</kbd> <kbd>→</kbd> or <kbd>Space</kbd> to explore</span>
+  </div>
+
+  <!-- Javascript Core Engine -->
+  <script src="app.js"></script>
+</body>
+</html>

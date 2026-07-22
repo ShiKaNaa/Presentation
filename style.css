@@ -1,0 +1,767 @@
+/* Import Premium Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Outfit:wght@300;400;600;800&display=swap');
+
+/* --- Design Tokens / System --- */
+:root {
+  /* Color Palette */
+  --bg-color: #0b0d13;
+  --bg-dots: rgba(255, 255, 255, 0.03);
+  --text-primary: #f8f9fa;
+  --text-secondary: #a0aec0;
+  
+  --accent-purple: #9d4edd;
+  --accent-cyan: #00f5d4;
+  --accent-pink: #ff007f;
+  --accent-blue: #3a86c8;
+  
+  --gradient-primary: linear-gradient(135deg, var(--accent-purple), var(--accent-pink));
+  --gradient-secondary: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+  
+  /* Glassmorphism Details */
+  --glass-bg: rgba(20, 24, 35, 0.6);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-shadow: rgba(0, 0, 0, 0.5);
+  --glass-blur: 16px;
+  
+  /* Fonts */
+  --font-title: 'Outfit', sans-serif;
+  --font-mono: 'Fira Code', monospace;
+  
+  /* Transitions */
+  --transition-speed: 0.8s;
+  --ease-in-out-cubic: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* --- Base Resets & Layout --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  font-family: var(--font-title);
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Background Grid Overlay & Glowing Orbs */
+.bg-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background-image: 
+    radial-gradient(var(--bg-dots) 1px, transparent 1px),
+    radial-gradient(var(--bg-dots) 1.5px, transparent 1.5px);
+  background-size: 40px 40px;
+  background-position: 0 0, 20px 20px;
+  pointer-events: none;
+}
+
+.glowing-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.15;
+  z-index: 0;
+  pointer-events: none;
+  animation: float 20s infinite alternate ease-in-out;
+}
+
+.orb-1 {
+  width: 50vw;
+  height: 50vw;
+  background: var(--gradient-primary);
+  top: -10%;
+  left: -10%;
+}
+
+.orb-2 {
+  width: 40vw;
+  height: 40vw;
+  background: var(--gradient-secondary);
+  bottom: -10%;
+  right: -10%;
+  animation-delay: -5s;
+}
+
+@keyframes float {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    transform: translate(10%, 8%) scale(1.1);
+  }
+}
+
+/* --- Presentation Container & Slide Deck --- */
+.presentation-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  perspective: 1500px; /* Needed for 3D flip transitions */
+}
+
+/* Slide Shell */
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 2rem 8rem 2rem;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 10;
+  transition: 
+    opacity var(--transition-speed) var(--ease-in-out-cubic),
+    transform var(--transition-speed) var(--ease-in-out-cubic);
+}
+
+.slide.active {
+  opacity: 1;
+  pointer-events: auto;
+  z-index: 20;
+}
+
+/* --- Transition Styles (Toggled via JavaScript on container) --- */
+
+/* 1. Slide Transition (Horizontal) */
+.transition-slide .slide {
+  transform: translateX(100vw);
+}
+.transition-slide .slide.active {
+  transform: translateX(0);
+}
+.transition-slide .slide.previous {
+  transform: translateX(-100vw);
+}
+
+/* 2. Fade Transition */
+.transition-fade .slide {
+  transform: scale(0.98);
+}
+.transition-fade .slide.active {
+  transform: scale(1);
+}
+.transition-fade .slide.previous {
+  transform: scale(1.02);
+}
+
+/* 3. Zoom Transition */
+.transition-zoom .slide {
+  transform: scale(0.1);
+}
+.transition-zoom .slide.active {
+  transform: scale(1);
+}
+.transition-zoom .slide.previous {
+  transform: scale(2.5);
+  opacity: 0;
+}
+
+/* 4. 3D Flip Transition */
+.transition-flip .slide {
+  transform: rotateY(90deg) translateZ(500px);
+  transform-style: preserve-3d;
+}
+.transition-flip .slide.active {
+  transform: rotateY(0deg) translateZ(0);
+}
+.transition-flip .slide.previous {
+  transform: rotateY(-90deg) translateZ(500px);
+}
+
+/* --- Slide Content Animations (Active State Trigger) --- */
+[class*="animate-"] {
+  opacity: 0;
+  transition: 
+    opacity 0.9s var(--ease-out-expo), 
+    transform 0.9s var(--ease-out-expo);
+  transition-delay: var(--delay, 0s);
+}
+
+/* Initial States */
+.animate-up { transform: translateY(50px); }
+.animate-down { transform: translateY(-50px); }
+.animate-left { transform: translateX(-50px); }
+.animate-right { transform: translateX(50px); }
+.animate-scale { transform: scale(0.85); }
+
+/* Triggered States */
+.slide.active .animate-up { opacity: 1; transform: translateY(0); }
+.slide.active .animate-down { opacity: 1; transform: translateY(0); }
+.slide.active .animate-left { opacity: 1; transform: translateX(0); }
+.slide.active .animate-right { opacity: 1; transform: translateX(0); }
+.slide.active .animate-scale { opacity: 1; transform: scale(1); }
+
+
+/* --- Slide Standard Elements Styling --- */
+.slide-content {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Modern Typography */
+h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+.text-gradient {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-secondary {
+  background: var(--gradient-secondary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+h2 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin-bottom: 2rem;
+  letter-spacing: -0.01em;
+}
+
+p {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+/* --- Slide Specific Components --- */
+
+/* Slide 1: Welcome Hero */
+.hero-wrapper {
+  text-align: center;
+  align-items: center;
+}
+
+.mono-tag {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: var(--accent-cyan);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin-bottom: 1rem;
+  display: inline-block;
+  background: rgba(0, 245, 212, 0.1);
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  border: 1px solid rgba(0, 245, 212, 0.2);
+}
+
+.hero-title {
+  font-size: 5rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  line-height: 1;
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  max-width: 600px;
+  margin: 0 auto 2.5rem auto;
+}
+
+/* Slide 2: About Me Grid Layout */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.bio-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(var(--glass-blur));
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px var(--glass-shadow);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.stat-item {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: transform 0.3s var(--ease-out-back), border-color 0.3s ease;
+}
+
+.stat-item:hover {
+  transform: translateY(-8px);
+  border-color: var(--accent-purple);
+  background: rgba(157, 78, 221, 0.05);
+}
+
+.stat-num {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--accent-cyan);
+  margin-bottom: 0.25rem;
+}
+
+.stat-label {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+/* Slide 3: Timeline */
+.timeline {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem 0;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--accent-purple), var(--accent-cyan));
+  transform: translateX(-50%);
+}
+
+.timeline-item {
+  width: 50%;
+  position: relative;
+  padding: 1.5rem 3rem;
+}
+
+.timeline-item:nth-child(odd) {
+  left: 0;
+  text-align: right;
+}
+
+.timeline-item:nth-child(even) {
+  left: 50%;
+  text-align: left;
+}
+
+.timeline-dot {
+  position: absolute;
+  top: 2rem;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--bg-color);
+  border: 4px solid var(--accent-cyan);
+  z-index: 2;
+}
+
+.timeline-item:nth-child(odd) .timeline-dot {
+  right: -8px;
+}
+
+.timeline-item:nth-child(even) .timeline-dot {
+  left: -8px;
+  border-color: var(--accent-purple);
+}
+
+.timeline-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(var(--glass-blur));
+  padding: 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px var(--glass-shadow);
+  transition: transform 0.3s ease;
+}
+
+.timeline-card:hover {
+  transform: scale(1.03);
+}
+
+.timeline-year {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--accent-pink);
+  margin-bottom: 0.5rem;
+}
+
+.timeline-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+/* Slide 4: Hobbies Hover Grid */
+.hobbies-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.hobby-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(var(--glass-blur));
+  padding: 2.5rem 2rem;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px var(--glass-shadow);
+  text-align: center;
+  transition: transform 0.4s var(--ease-out-back), border-color 0.4s ease, box-shadow 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.hobby-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--gradient-primary);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.hobby-card:hover {
+  transform: translateY(-12px);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 25px 50px rgba(157, 78, 221, 0.15);
+}
+
+.hobby-card:hover::before {
+  opacity: 1;
+}
+
+.hobby-card:nth-child(2)::before {
+  background: var(--gradient-secondary);
+}
+.hobby-card:nth-child(2):hover {
+  box-shadow: 0 25px 50px rgba(0, 245, 212, 0.15);
+}
+
+.hobby-icon {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.hobby-card:hover .hobby-icon {
+  transform: scale(1.2) rotate(5deg);
+}
+
+.hobby-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+/* Slide 5: Let's Connect */
+.connect-content {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  color: var(--text-primary);
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s var(--ease-out-back);
+  backdrop-filter: blur(var(--glass-blur));
+}
+
+.social-btn svg {
+  width: 22px;
+  height: 22px;
+  fill: currentColor;
+}
+
+.social-btn:hover {
+  transform: translateY(-5px);
+  background: var(--text-primary);
+  color: var(--bg-color);
+  border-color: var(--text-primary);
+  box-shadow: 0 15px 30px rgba(255, 255, 255, 0.1);
+}
+
+/* Custom interactive feature: Slide transition test controls */
+.transition-picker {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 0.3rem;
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.transition-chip {
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  color: var(--text-secondary);
+  transition: all 0.3s ease;
+  font-family: var(--font-mono);
+}
+
+.transition-chip.active {
+  background: var(--accent-purple);
+  color: var(--text-primary);
+  box-shadow: 0 5px 15px rgba(157, 78, 221, 0.3);
+}
+
+/* --- Controls Bar & Navigation Elements --- */
+
+/* Header Indicator */
+.top-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.logo {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--text-primary);
+  pointer-events: auto;
+  text-decoration: none;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.logo:hover {
+  opacity: 1;
+}
+
+/* Top Progress Bar */
+.progress-bar-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.05);
+  z-index: 110;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(to right, var(--accent-purple), var(--accent-cyan), var(--accent-pink));
+  transition: width 0.4s cubic-bezier(0.1, 0.8, 0.25, 1);
+}
+
+/* Floating Bottom Controls */
+.controls-bar {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(var(--glass-blur));
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  box-shadow: 0 15px 40px var(--glass-shadow);
+  pointer-events: auto;
+}
+
+.nav-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: var(--text-primary);
+  transition: all 0.3s var(--ease-out-back);
+}
+
+.nav-btn:hover {
+  background: var(--text-primary);
+  color: var(--bg-color);
+  transform: scale(1.1);
+}
+
+.nav-btn:active {
+  transform: scale(0.95);
+}
+
+.nav-btn svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+.slide-indicator {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+}
+
+.slide-indicator .current {
+  color: var(--accent-cyan);
+}
+
+.slide-indicator .total {
+  color: var(--text-secondary);
+}
+
+/* Keyboard Hints */
+.keyboard-hint {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.02);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0.5;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.keyboard-hint kbd {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--text-primary);
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 900px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .hobbies-grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+  
+  .timeline::before {
+    left: 2rem;
+  }
+  
+  .timeline-item {
+    width: 100%;
+    text-align: left !important;
+    padding-left: 4rem;
+    padding-right: 0;
+  }
+  
+  .timeline-item:nth-child(even) {
+    left: 0;
+  }
+  
+  .timeline-dot {
+    left: 2rem !important;
+    transform: translateX(-50%);
+  }
+  
+  .slide {
+    padding-top: 5rem;
+    padding-bottom: 7rem;
+    overflow-y: auto;
+  }
+  
+  .presentation-container {
+    height: 100%;
+    align-items: flex-start;
+  }
+  
+  h1 { font-size: 2.5rem; }
+  h2 { font-size: 2.2rem; }
+  .hero-title { font-size: 3.5rem; }
+  
+  .controls-bar {
+    width: 90%;
+    justify-content: space-between;
+    padding: 0.6rem 1.5rem;
+    bottom: 1rem;
+  }
+  
+  .keyboard-hint {
+    display: none;
+  }
+}
