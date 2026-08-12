@@ -1277,3 +1277,693 @@ p {
   color: rgba(255, 255, 255, 0.6);
 }
 
+
+/* ══════════════════════════════════════════════════════════
+   NOUVEAUX COMPOSANTS — PRÉSENTATION HUMORISTIQUE
+   ══════════════════════════════════════════════════════════ */
+
+/* --- Hero Badge --- */
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(157, 78, 221, 0.15);
+  border: 1px solid rgba(157, 78, 221, 0.4);
+  border-radius: 999px;
+  padding: 0.45rem 1.2rem;
+  font-size: 0.82rem;
+  font-family: var(--font-mono);
+  color: var(--accent-purple);
+  letter-spacing: 0.06em;
+  margin-bottom: 0.5rem;
+  animation: pulseBadge 3s ease-in-out infinite;
+}
+
+@keyframes pulseBadge {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(157, 78, 221, 0.3); }
+  50%       { box-shadow: 0 0 0 8px rgba(157, 78, 221, 0); }
+}
+
+/* --- Fun Quote Block --- */
+.fun-quote {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  background: rgba(255, 255, 255, 0.04);
+  border-left: 3px solid var(--accent-cyan);
+  border-radius: 0 8px 8px 0;
+  padding: 0.7rem 1rem;
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.fun-quote-icon {
+  font-style: normal;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  margin-top: 0.05rem;
+}
+
+/* ══════════════════════════════════════════════════════════
+   SLIDE 4 — Analyse Scientifique / Donut Chart
+   ══════════════════════════════════════════════════════════ */
+
+.science-layout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3.5rem;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Donut Chart */
+.donut-wrapper {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  flex-shrink: 0;
+}
+
+.donut-chart {
+  width: 200px;
+  height: 200px;
+  transform: rotate(-90deg);
+  filter: drop-shadow(0 0 18px rgba(157, 78, 221, 0.5));
+}
+
+.donut-bg {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.07);
+  stroke-width: 28;
+}
+
+.donut-segment {
+  fill: none;
+  stroke-width: 28;
+  stroke-linecap: butt;
+}
+
+.seg-talent {
+  stroke: url(#donutGradient);
+  stroke: var(--accent-purple);
+}
+
+.seg-cafe {
+  stroke: var(--accent-cyan);
+}
+
+.donut-center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.donut-pct {
+  font-size: 2rem;
+  font-weight: 800;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+
+.donut-label {
+  font-size: 0.72rem;
+  font-family: var(--font-mono);
+  color: var(--text-secondary);
+  text-align: center;
+  line-height: 1.3;
+  margin-top: 0.2rem;
+}
+
+/* Stats Panel */
+.stats-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex: 1;
+  min-width: 240px;
+}
+
+/* Donut Legend */
+.donut-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-size: 0.92rem;
+}
+
+.legend-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+.dot-talent { background: var(--accent-purple); }
+.dot-cafe   { background: var(--accent-cyan); }
+
+/* Fake Stat Cards */
+.fake-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+}
+
+.fake-stat-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 10px;
+  padding: 0.7rem 0.8rem;
+  text-align: center;
+  backdrop-filter: blur(var(--glass-blur));
+  transition: transform 0.25s var(--ease-out-back), border-color 0.25s;
+}
+
+.fake-stat-card:hover {
+  transform: translateY(-3px) scale(1.03);
+  border-color: rgba(157, 78, 221, 0.4);
+}
+
+.fake-stat-num {
+  font-size: 1.4rem;
+  font-weight: 800;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+
+.fake-stat-label {
+  font-size: 0.7rem;
+  font-family: var(--font-mono);
+  color: var(--text-secondary);
+  margin-top: 0.2rem;
+  line-height: 1.3;
+}
+
+/* ══════════════════════════════════════════════════════════
+   SLIDE 6 — David Hume
+   ══════════════════════════════════════════════════════════ */
+
+.hume-header {
+  text-align: center;
+  margin-bottom: 1.6rem;
+}
+
+.hume-intro {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  max-width: 680px;
+  margin: 0.6rem auto 0;
+  line-height: 1.65;
+}
+
+.hume-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  width: 100%;
+}
+
+.hume-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 14px;
+  padding: 1.2rem 1.1rem;
+  backdrop-filter: blur(var(--glass-blur));
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s var(--ease-out-back), border-color 0.3s, box-shadow 0.3s;
+}
+
+.hume-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-secondary);
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: 0;
+}
+
+.hume-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(0, 245, 212, 0.35);
+  box-shadow: 0 12px 30px rgba(0, 245, 212, 0.12);
+}
+
+.hume-card:hover::before { opacity: 0.05; }
+
+.hume-card > * { position: relative; z-index: 1; }
+
+.hume-num {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--accent-cyan);
+  letter-spacing: 0.15em;
+  margin-bottom: 0.5rem;
+  opacity: 0.9;
+}
+
+.hume-card h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+
+.hume-card p {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ══════════════════════════════════════════════════════════
+   SLIDE 7 — Conclusion / Q&A Box
+   ══════════════════════════════════════════════════════════ */
+
+.qa-box {
+  background: var(--glass-bg);
+  border: 1px solid rgba(255, 215, 0, 0.25);
+  border-radius: 20px;
+  padding: 1.8rem 2.2rem;
+  max-width: 600px;
+  width: 100%;
+  backdrop-filter: blur(var(--glass-blur));
+  box-shadow: 0 0 40px rgba(255, 215, 0, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.qa-box::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 0%, rgba(255, 215, 0, 0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.qa-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.6rem;
+}
+
+.qa-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #ffd700;
+  margin-bottom: 0.6rem;
+}
+
+.qa-subtitle {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+/* ══════════════════════════════════════════════════════════
+   RESPONSIVE ADJUSTMENTS (small screens)
+   ══════════════════════════════════════════════════════════ */
+
+@media (max-width: 700px) {
+  .science-layout { gap: 1.5rem; }
+  .donut-wrapper  { width: 160px; height: 160px; }
+  .donut-chart    { width: 160px; height: 160px; }
+  .hume-grid      { grid-template-columns: 1fr 1fr; }
+  .fake-stats     { grid-template-columns: 1fr 1fr; }
+  .qa-box         { padding: 1.2rem 1.4rem; }
+}
+
+@media (max-width: 480px) {
+  .hume-grid { grid-template-columns: 1fr; }
+}
+
+/* ══════════════════════════════════════════════════════════
+   STYLING COMPOSANTS PDF SLIDES
+   ══════════════════════════════════════════════════════════ */
+
+.photo-placeholder-dashed {
+  border: 2px dashed rgba(255, 183, 3, 0.4);
+  background: rgba(255, 183, 3, 0.02);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2rem;
+  color: #ffb703;
+  text-align: center;
+  min-height: 300px;
+  cursor: pointer;
+  transition: border-color 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
+}
+
+.photo-placeholder-dashed:hover {
+  border-color: #ffb703;
+  background: rgba(255, 183, 3, 0.06);
+  transform: scale(1.02);
+}
+
+.photo-placeholder-icon {
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+}
+
+.photo-placeholder-text {
+  font-size: 0.9rem;
+  font-family: var(--font-title);
+  opacity: 0.85;
+}
+
+/* Bullet list inside slides */
+.slide-content ul {
+  list-style: none;
+  margin-top: 1rem;
+  padding-left: 0;
+}
+
+.slide-content li {
+  font-size: 1.05rem;
+  margin-bottom: 0.8rem;
+  position: relative;
+  padding-left: 1.5rem;
+  color: var(--text-secondary);
+  text-align: left;
+}
+
+.slide-content li::before {
+  content: "•";
+  color: #ffb703;
+  position: absolute;
+  left: 0;
+  font-size: 1.3rem;
+  line-height: 1;
+  top: 0.1rem;
+}
+
+/* Layout 3 Colonnes */
+.card-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.custom-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 2.2rem 1.8rem;
+  text-align: center;
+  backdrop-filter: blur(var(--glass-blur));
+  transition: transform 0.3s var(--ease-out-back), border-color 0.3s ease;
+}
+
+.custom-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(255, 183, 3, 0.3);
+}
+
+.custom-card-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1.2rem;
+  color: #ffb703;
+}
+
+.custom-card h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+  color: var(--text-primary);
+}
+
+.custom-card p {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Scolarité Complex Grid */
+.complex-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+/* Capillaire Grid */
+.capillaire-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.8rem;
+  margin-top: 1rem;
+}
+
+.capillaire-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 1.2rem;
+  text-align: center;
+  backdrop-filter: blur(var(--glass-blur));
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: transform 0.3s var(--ease-out-back);
+}
+
+.capillaire-card:hover {
+  transform: translateY(-6px);
+}
+
+.capillaire-card .photo-placeholder-dashed {
+  min-height: 180px;
+  padding: 1.5rem;
+}
+
+.capillaire-card h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 0.2rem 0;
+  color: #ffb703;
+}
+
+.capillaire-card p {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Philo Layout */
+.philo-layout {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.quote-card {
+  background: var(--glass-bg);
+  border-left: 4px solid #ffb703;
+  border-radius: 0 16px 16px 0;
+  padding: 2.2rem;
+  font-style: italic;
+  font-size: 1.2rem;
+  line-height: 1.65;
+  position: relative;
+  backdrop-filter: blur(var(--glass-blur));
+  box-shadow: 0 10px 30px var(--glass-shadow);
+}
+
+.quote-card::before {
+  content: "“";
+  font-size: 6rem;
+  position: absolute;
+  top: -1.2rem;
+  left: 1.5rem;
+  opacity: 0.1;
+  color: #ffb703;
+  font-family: serif;
+}
+
+.quote-author {
+  display: block;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  font-family: var(--font-mono);
+  font-style: normal;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 768px) {
+  .card-grid-3, .capillaire-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .complex-grid, .philo-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════
+   SLIDE 3 — Hint label sur les person-cards
+   ══════════════════════════════════════════════════════════ */
+
+.card-photo-hint {
+  margin-top: 0.9rem;
+  font-size: 0.78rem;
+  font-family: var(--font-mono);
+  color: #ffb703;
+  opacity: 0.65;
+  letter-spacing: 0.05em;
+  transition: opacity 0.2s ease;
+}
+
+.person-card:hover .card-photo-hint {
+  opacity: 1;
+}
+
+.person-card:hover {
+  border-color: rgba(255, 183, 3, 0.4);
+  box-shadow: 0 0 30px rgba(255, 183, 3, 0.1);
+}
+
+/* ══════════════════════════════════════════════════════════
+   PERSON PHOTO MODAL
+   ══════════════════════════════════════════════════════════ */
+
+.person-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.person-modal.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.person-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(5, 5, 18, 0.82);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  cursor: pointer;
+}
+
+.person-modal-card {
+  position: relative;
+  z-index: 1;
+  background: var(--glass-bg);
+  border: 1px solid rgba(255, 183, 3, 0.25);
+  border-radius: 24px;
+  padding: 2.5rem;
+  max-width: 480px;
+  width: 90%;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5), 0 0 60px rgba(255, 183, 3, 0.08);
+  backdrop-filter: blur(20px);
+  text-align: center;
+  transform: scale(0.82) translateY(30px);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.35s ease;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.person-modal.open .person-modal-card {
+  transform: scale(1) translateY(0);
+  opacity: 1;
+}
+
+.person-modal-img-wrapper {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 1.5rem auto;
+  border: 3px solid rgba(255, 183, 3, 0.35);
+  box-shadow: 0 0 40px rgba(255, 183, 3, 0.15);
+  position: relative;
+  background: rgba(255, 183, 3, 0.04);
+}
+
+.person-modal-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.person-modal-img[src=""] {
+  display: none;
+}
+
+.person-modal-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.person-modal-img:not([src=""]) ~ .person-modal-placeholder {
+  display: none;
+}
+
+.person-modal-ph-icon {
+  font-size: 2.8rem;
+}
+
+.person-modal-ph-text {
+  font-size: 0.85rem;
+  color: #ffb703;
+  opacity: 0.8;
+  font-family: var(--font-mono);
+}
+
+.person-modal-label {
+  font-size: 1.05rem;
+  color: var(--text-primary);
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 1rem;
+}
+
+.person-modal-hint {
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  color: var(--text-secondary);
+  opacity: 0.55;
+  letter-spacing: 0.06em;
+}
+

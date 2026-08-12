@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Une présentation interactive conçue avec des transitions CSS personnalisées. Découvrez mon parcours, mes souvenirs et mes passions.">
-  <title>À propos de moi | Présentation CSS Interactive</title>
-  
+  <meta name="description"
+    content="Une étude de cas sur la perfection absolue. Raphaël : l'évolution d'une légende (199X–2026).">
+  <title>Raphaël | Une Étude de Cas sur la Perfection</title>
+
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
   <!-- Background Orbs and Mesh Grid -->
@@ -24,7 +27,7 @@
   <!-- Top Header Navigation -->
   <header class="top-header">
     <a href="#" class="logo">&lt; Raphaël /&gt;</a>
-    
+
     <!-- Transition Selection Feature -->
     <div class="transition-picker" style="pointer-events: auto;">
       <span class="transition-chip active" data-transition="slide">Glissement</span>
@@ -34,259 +37,297 @@
     </div>
   </header>
 
-  <!-- Presentation Deck Container (default to slide transitions) -->
+  <!-- Presentation Deck Container -->
   <main id="presentationDeck" class="presentation-container transition-slide">
-    
-    <!-- SLIDE 1: Welcome Hero -->
+
+    <!-- ══════════════════════════════════════════════ -->
+    <!-- SLIDE 1 : Héros — L'Évolution d'une Légende   -->
+    <!-- ══════════════════════════════════════════════ -->
     <section class="slide active" id="slide-1">
       <div class="slide-content hero-wrapper">
-        <div class="mono-tag animate-down" style="--delay: 0.1s;">Bonjour le monde</div>
-        <h1 class="hero-title animate-scale" style="--delay: 0.3s;">
-          Salut, je suis <span class="text-gradient">Raphaël</span>
+        <h1 class="hero-title animate-scale" style="--delay: 0.2s;">
+          Moi : L'Évolution d'une <span class="text-gradient">Légende</span>
         </h1>
-        <p class="hero-subtitle animate-up" style="--delay: 0.5s;">
-          Un développeur créatif passionné par les interfaces interactives, les animations fluides et le partage de belles histoires. Bienvenue dans mes souvenirs.
+        <p class="hero-subtitle animate-up" style="--delay: 0.4s;">
+          Comment je suis devenu la personne préférée de ma mère (199X - 2026)
         </p>
-        <div class="animate-up" style="--delay: 0.7s;">
+        <div class="animate-up" style="--delay: 0.6s;">
           <button class="nav-btn next-trigger" aria-label="Commencer la présentation">
-            <svg viewBox="0 0 24 24"><path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42L16.86 11H5v2z"/></svg>
+            <svg viewBox="0 0 24 24">
+              <path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42L16.86 11H5v2z" />
+            </svg>
           </button>
         </div>
       </div>
     </section>
 
-    <!-- SLIDE 2: Mon Enfance -->
+    <!-- ══════════════════════════════════════════════ -->
+    <!-- SLIDE 2 : Les Origines du Mythe               -->
+    <!-- ══════════════════════════════════════════════ -->
     <section class="slide" id="slide-2">
       <div class="slide-content">
-        <div class="childhood-layout">
+        <div class="complex-grid">
           <div class="childhood-text animate-left" style="--delay: 0.1s;">
-            <h2>Mon <span class="text-gradient-secondary">Enfance</span></h2>
+            <h2>Les Origines du <span class="text-gradient">Mythe</span></h2>
+            <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: var(--text-primary);">
+              Une évidence précoce
+            </h3>
             <p>
-              Né le 19 janvier 1993 à Tourcoing (59), j'ai grandi dans le Nord de la France. Qu'il s'agisse de mes tout premiers pas sous les flocons de neige dans le jardin ou de moments de pur bonheur partagés, mon enfance a jeté les bases de ma curiosité et de mon imagination.
+              Dès le plus jeune âge, le potentiel de grandeur était indéniable. Alors que les autres enfants mangeaient du sable, j'analysais déjà les failles du système éducatif.
             </p>
-            <p style="margin-bottom: 0;">
-              Chaque souvenir, capturé sur le vif, raconte une époque de découverte et de complicité simple.
-            </p>
+            <ul>
+              <li>Un charisme naturel (même en salopette)</li>
+              <li>Une capacité innée à diriger les autres enfants</li>
+              <li>Le refus catégorique de faire la sieste : le temps est précieux pour un esprit supérieur.</li>
+            </ul>
           </div>
-          <div class="polaroid-gallery animate-scale" style="--delay: 0.3s;">
-            <!-- Polaroid 1: Neige -->
-            <div class="polaroid-card" style="--rotation: -4deg;">
-              <div class="polaroid-image-container">
-                <img src="images/media__1784741299916.jpg" alt="Première neige dans le jardin">
-              </div>
-              <div class="polaroid-caption">Première neige à Tourcoing</div>
-            </div>
-            <!-- Polaroid 2: Bain -->
-            <div class="polaroid-card" style="--rotation: 5deg;">
-              <div class="polaroid-image-container">
-                <img src="images/media__1784741299956.jpg" alt="L'heure du bain complice">
-              </div>
-              <div class="polaroid-caption">Complices du bain</div>
+          <div class="animate-right" style="--delay: 0.3s;">
+            <div class="photo-placeholder-dashed">
+              <div class="photo-placeholder-icon">📷</div>
+              <div class="photo-placeholder-text">[Insérez votre photo d'enfance mignonne ici]</div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SLIDE 3: Racines & Famille -->
+    <!-- ══════════════════════════════════════════════ -->
+    <!-- SLIDE 3 : Le Premier Cercle de Fidèles        -->
+    <!-- ══════════════════════════════════════════════ -->
     <section class="slide" id="slide-3">
-      <div class="slide-content" style="align-items: center; text-align: center;">
-        <h2 class="animate-down" style="--delay: 0.1s; margin-bottom: 1rem;">
-          Racines & <span class="text-gradient">Famille</span>
+      <div class="slide-content">
+        <h2 class="animate-down" style="--delay: 0.1s; text-align: center; margin-bottom: 1rem;">
+          Le Premier Cercle de <span class="text-gradient">Fidèles</span>
         </h2>
-        <p class="animate-up" style="--delay: 0.3s; max-width: 700px; margin-bottom: 2rem;">
-          Fils d'un père ouvrier et d'une mère au foyer, j'ai grandi entouré de valeurs fortes. Les fêtes de famille, le gâteau traditionnel et le roi couronné à l'Épiphanie restent des piliers chaleureux gravés dans mon cœur.
-        </p>
-        
-        <div class="fanning-gallery animate-scale" style="--delay: 0.5s;">
-          <!-- Polaroid 3: Epiphanie -->
-          <div class="polaroid-card">
-            <div class="polaroid-image-container">
-              <img src="images/media__1784741299934.jpg" alt="Le jour des rois">
-            </div>
-            <div class="polaroid-caption">Couronné roi !</div>
+        <div class="card-grid-3 animate-scale" style="--delay: 0.3s;">
+          <div class="custom-card person-card" data-person="Les Créateurs" data-photo="images/parents.jpg" data-label="Mes parents — les géniteurs du chef-d'œuvre" style="cursor: pointer;">
+            <div class="custom-card-icon">👪</div>
+            <h3>Les Créateurs</h3>
+            <p>
+              Mes parents. Ils ont eu l'immense privilège de façonner ce chef-d'œuvre. Je les remercie quotidiennement pour leurs excellents gènes.
+            </p>
+            <div class="card-photo-hint">📸 Cliquez pour voir</div>
           </div>
-          <!-- Polaroid 4: Anniversaire Pose -->
-          <div class="polaroid-card">
-            <div class="polaroid-image-container">
-              <img src="images/media__1784741300033.jpg" alt="Pose devant le gâteau d'anniversaire">
-            </div>
-            <div class="polaroid-caption">Fêter chaque année</div>
+          <div class="custom-card person-card" data-person="Le Premier Disciple" data-photo="images/soeur.jpg" data-label="Ma sœur — la première admiratrice" style="cursor: pointer;">
+            <div class="custom-card-icon">👥</div>
+            <h3>Le Premier Disciple</h3>
+            <p>
+              Ma sœur. Grandir dans mon ombre lumineuse n'a pas dû être facile tous les jours, mais elle a survécu avec brio. Une excellente spectatrice de ma vie.
+            </p>
+            <div class="card-photo-hint">📸 Cliquez pour voir</div>
           </div>
-          <!-- Polaroid 5: Anniversaire Cake -->
-          <div class="polaroid-card">
-            <div class="polaroid-image-container">
-              <img src="images/media__1784741300041.jpg" alt="Célébration d'anniversaire">
-            </div>
-            <div class="polaroid-caption">Souffler les bougies</div>
+          <div class="custom-card person-card" data-person="L'Élue" data-photo="images/copine.jpg" data-label="Ma copine — l'heureuse élue" style="cursor: pointer;">
+            <div class="custom-card-icon">💍</div>
+            <h3>L'Élue</h3>
+            <p>
+              Ma copine. Celle qui a eu l'audace et le bon goût absolu de partager ma vie. Elle a su reconnaître le génie sous sa forme la plus pure.
+            </p>
+            <div class="card-photo-hint">📸 Cliquez pour voir</div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SLIDE 4: Le Défi & La Fac de Droit -->
+    <!-- ══════════════════════════════════════════════ -->
+    <!-- SLIDE 4 : L'Incompréhension du Système        -->
+    <!-- ══════════════════════════════════════════════ -->
     <section class="slide" id="slide-4">
       <div class="slide-content">
-        <h2 class="animate-left" style="--delay: 0.1s;">
-          Le Défi & <span class="text-gradient-secondary">Fac de Droit</span>
-        </h2>
-        <div class="about-grid">
-          <div class="bio-card animate-scale" style="--delay: 0.3s;">
-            <p>
-              À la suite d'une phobie scolaire et d'un profond mal-être au lycée, j'ai pris la difficile décision d'arrêter l'école en classe de seconde. Loin de me laisser abattre, j'ai décidé de me reprendre en main : j'ai perdu du poids, repris mes études en candidat libre et obtenu mon équivalent bac.
-            </p>
-            <p style="margin-bottom: 0;">
-              Cette victoire personnelle m'a donné la confiance nécessaire pour intégrer la faculté de droit. C'est également à cette période charnière que j'ai rencontré ma copine, qui m'accompagne depuis lors.
-            </p>
+        <div class="complex-grid">
+          <div class="animate-left" style="--delay: 0.1s;">
+            <div class="photo-placeholder-dashed">
+              <div class="photo-placeholder-icon">🎓</div>
+              <div class="photo-placeholder-text">[Insérez une photo d'école ou d'adolescent rebelle ici]</div>
+            </div>
           </div>
-          <div class="stats-grid">
-            <div class="stat-item animate-right" style="--delay: 0.4s;">
-              <div class="stat-num">2nde</div>
-              <div class="stat-label">Arrêt Scolaire</div>
-            </div>
-            <div class="stat-item animate-right" style="--delay: 0.5s;">
-              <div class="stat-num">DAEU</div>
-              <div class="stat-label">Équivalent Bac</div>
-            </div>
-            <div class="stat-item animate-right" style="--delay: 0.6s;">
-              <div class="stat-num">Droit</div>
-              <div class="stat-label">Faculté</div>
-            </div>
-            <div class="stat-item animate-right" style="--delay: 0.7s;">
-              <div class="stat-num">❤️</div>
-              <div class="stat-label">Rencontre</div>
-            </div>
+          <div class="childhood-text animate-right" style="--delay: 0.3s;">
+            <h2>L'Incompréhension du <span class="text-gradient-secondary">Système</span></h2>
+            <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: var(--text-primary);">
+              Une scolarité... complexe
+            </h3>
+            <ul>
+              <li><strong>Le fardeau du génie :</strong> L'Éducation Nationale n'était tout simplement pas prête pour ma vision avant-gardiste du monde.</li>
+              <li><strong>Des notes trompeuses :</strong> Mes bulletins scolaires ne reflétaient en aucun cas des lacunes, mais plutôt mon refus catégorique de me conformer à la médiocrité.</li>
+              <li><strong>La preuve historique :</strong> Einstein a eu de mauvaises notes. Moi aussi. Coïncidence ? Je ne crois pas.</li>
+            </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SLIDE 5: Lyon & L'Animation -->
+    <!-- ══════════════════════════════════════════════ -->
+    <!-- SLIDE 5 : L'Avant-Garde Capillaire            -->
+    <!-- ══════════════════════════════════════════════ -->
     <section class="slide" id="slide-5">
       <div class="slide-content">
-        <h2 class="animate-down" style="--delay: 0.1s; text-align: center; margin-bottom: 3rem;">
-          Lyon & <span class="text-gradient">L'Animation</span>
+        <h2 class="animate-down" style="--delay: 0.1s; text-align: center; margin-bottom: 1rem;">
+          L'Avant-Garde <span class="text-gradient">Capillaire</span>
         </h2>
-        <div class="timeline">
-          <!-- Timeline Item 1 -->
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-card animate-left" style="--delay: 0.3s;">
-              <div class="timeline-year">1 An</div>
-              <h3 class="timeline-title">La vie à Lyon</h3>
-              <p style="font-size: 0.95rem; margin-bottom: 0;">
-                Départ pour Lyon pendant un an. Une expérience d'indépendance, de découverte culturelle et de nouveaux horizons.
-              </p>
+        <div class="capillaire-grid animate-scale" style="--delay: 0.3s;">
+          <div class="capillaire-card">
+            <div class="photo-placeholder-dashed">
+              <div class="photo-placeholder-icon">✂️</div>
+              <div class="photo-placeholder-text">[Photo : Coupe douteuse 1]</div>
             </div>
+            <h3>L'Audace</h3>
+            <p>La période où j'ai confondu "style rebelle" et "erreur de parcours".</p>
           </div>
-          <!-- Timeline Item 2 -->
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-card animate-right" style="--delay: 0.5s;">
-              <div class="timeline-year">Retour</div>
-              <h3 class="timeline-title">Animateur dans le Nord</h3>
-              <p style="font-size: 0.95rem; margin-bottom: 0;">
-                Retour dans le Nord. Engagement dans une association locale où j'ai exercé avec passion le métier d'animateur d'activités.
-              </p>
+          <div class="capillaire-card">
+            <div class="photo-placeholder-dashed">
+              <div class="photo-placeholder-icon">👨</div>
+              <div class="photo-placeholder-text">[Photo : Tentative Moustache]</div>
             </div>
+            <h3>Le Visionnaire</h3>
+            <p>La fameuse période moustache. J'avais juste 15 ans d'avance sur la mode.</p>
           </div>
-          <!-- Timeline Item 3 -->
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-card animate-left" style="--delay: 0.7s;">
-              <div class="timeline-year">4 Ans</div>
-              <h3 class="timeline-title">Coordinateur d'activités</h3>
-              <p style="font-size: 0.95rem; margin-bottom: 0;">
-                Promotion au sein de l'association. Quatre années à concevoir des projets, encadrer les animateurs et coordonner les actions sociales de terrain.
-              </p>
+          <div class="capillaire-card">
+            <div class="photo-placeholder-dashed">
+              <div class="photo-placeholder-icon">✨</div>
+              <div class="photo-placeholder-text">[Photo : Cheveux trop longs]</div>
             </div>
+            <h3>L'Incompris</h3>
+            <p>La gravité n'avait aucune emprise sur ces cheveux. Mon charisme était en phase de chargement.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SLIDE 6: Reconversion IT -->
+    <!-- ══════════════════════════════════════════════ -->
+    <!-- SLIDE 6 : Le Narcissisme Philosophique        -->
+    <!-- ══════════════════════════════════════════════ -->
     <section class="slide" id="slide-6">
       <div class="slide-content">
-        <h2 class="animate-left" style="--delay: 0.1s;">
-          Reconversion <span class="text-gradient-secondary">Informatique</span>
-        </h2>
-        <div class="about-grid">
-          <div class="bio-card animate-scale" style="--delay: 0.3s;">
+        <div class="philo-layout">
+          <div class="childhood-text animate-left" style="--delay: 0.1s;">
+            <h2>Le Narcissisme <span class="text-gradient">Philosophique</span></h2>
+            <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: var(--text-primary);">
+              L'art de s'aimer (pour le bien de tous)
+            </h3>
             <p>
-              Après quatre belles années de coordination d'activité, j'ai eu envie d'un nouveau défi de vie et d'explorer ma passion pour le web et les nouvelles technologies.
+              Si vous pensez que j'ai un ego surdimensionné, sachez que je ne fais que suivre les préceptes du grand philosophe David Hume.
             </p>
-            <p style="margin-bottom: 0;">
-              Inspiré et soutenu par ma copine qui travaille déjà avec succès dans le secteur informatique, j'ai décidé de prendre ce grand tournant professionnel et de me reconvertir dans le développement web et logiciel.
+            <p>
+              Selon lui, l'amour-propre n'est pas un défaut, mais un moteur indispensable. C'est grâce à la fierté que l'on accomplit de grandes choses pour la société.
             </p>
           </div>
-          <div class="stats-grid">
-            <div class="stat-item animate-right" style="--delay: 0.4s;">
-              <div class="stat-num">Pivot</div>
-              <div class="stat-label">Reconversion</div>
-            </div>
-            <div class="stat-item animate-right" style="--delay: 0.5s;">
-              <div class="stat-num">IT</div>
-              <div class="stat-label">Secteur</div>
-            </div>
-            <div class="stat-item animate-right" style="--delay: 0.6s;">
-              <div class="stat-num">Duo</div>
-              <div class="stat-label">Projets Communs</div>
-            </div>
-            <div class="stat-item animate-right" style="--delay: 0.7s;">
-              <div class="stat-num">💻</div>
-              <div class="stat-label">Futur</div>
+          <div class="animate-right" style="--delay: 0.3s;">
+            <div class="quote-card">
+              "Une juste appréciation de sa propre valeur n'est pas un vice, mais le fondement même de la vertu et du mérite."
+              <span class="quote-author">— (À peu près) David Hume</span>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SLIDE 7: Passions & Loisirs -->
+    <!-- ══════════════════════════════════════════════ -->
+    <!-- SLIDE 7 : Comment se faire aimer en Société   -->
+    <!-- ══════════════════════════════════════════════ -->
     <section class="slide" id="slide-7">
       <div class="slide-content">
-        <h2 class="animate-left" style="--delay: 0.1s;">
-          Passions & <span class="text-gradient-secondary">Loisirs</span>
+        <h2 class="animate-down" style="--delay: 0.1s; text-align: center; margin-bottom: 1rem;">
+          Comment se faire aimer en <span class="text-gradient-secondary">Société</span>
         </h2>
-        <div class="hobbies-grid">
-          <!-- Card 1 -->
-          <div class="hobby-card animate-up" style="--delay: 0.3s;">
-            <div class="hobby-icon">💻</div>
-            <h3 class="hobby-title">Open Source</h3>
-            <p style="font-size: 0.95rem; margin-bottom: 0;">
-              Contribution à des paquets communautaires, publication de templates modernes et exploration des technologies d'optimisation.
+        <div class="card-grid-3 animate-scale" style="--delay: 0.3s;">
+          <div class="custom-card">
+            <div class="custom-card-icon">💬</div>
+            <h3>1. Parler de soi</h3>
+            <p>
+              Les gens adorent les belles histoires. Quoi de plus fascinant que de leur raconter la mienne en détail ?
             </p>
           </div>
-          <!-- Card 2 -->
-          <div class="hobby-card animate-up" style="--delay: 0.5s;">
-            <div class="hobby-icon">📷</div>
-            <h3 class="hobby-title">Photographie</h3>
-            <p style="font-size: 0.95rem; margin-bottom: 0;">
-              Capture des lignes géométriques urbaines, des contrastes de lumière et des paysages durant mes explorations.
+          <div class="custom-card">
+            <div class="custom-card-icon">🤣</div>
+            <h3>2. Rire à ses propres blagues</h3>
+            <p>
+              Si je ne montre pas l'exemple, comment le public est-il censé savoir à quel moment c'est drôle ?
             </p>
           </div>
-          <!-- Card 3 -->
-          <div class="hobby-card animate-up" style="--delay: 0.7s;">
-            <div class="hobby-icon">✈️</div>
-            <h3 class="hobby-title">Voyages</h3>
-            <p style="font-size: 0.95rem; margin-bottom: 0;">
-              Découverte de nouvelles cultures, randonnées en pleine nature, dégustation de spécialités et inspiration graphique.
+          <div class="custom-card">
+            <div class="custom-card-icon">🧘</div>
+            <h3>3. Rester humble</h3>
+            <p>
+              L'étape la plus difficile. Je m'entraîne chaque jour devant mon miroir à faire semblant d'être impressionné par les autres.
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SLIDE 8: Le Grand Quiz -->
+    <!-- ══════════════════════════════════════════════ -->
+    <!-- SLIDE 8 : Chargé de Mission : Sauver le Monde -->
+    <!-- ══════════════════════════════════════════════ -->
     <section class="slide" id="slide-8">
+      <div class="slide-content">
+        <div class="complex-grid">
+          <div class="animate-left" style="--delay: 0.1s;">
+            <div class="photo-placeholder-dashed">
+              <div class="photo-placeholder-icon">💼</div>
+              <div class="photo-placeholder-text">[Insérez une photo de vous au travail/associatif]</div>
+            </div>
+          </div>
+          <div class="childhood-text animate-right" style="--delay: 0.3s;">
+            <h2>Chargé de Mission : <span class="text-gradient">Sauver le Monde</span></h2>
+            <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: var(--text-primary);">
+              Plus qu'un métier, un sacerdoce
+            </h3>
+            <ul>
+              <li><strong>Vision :</strong> Je ne vois pas mon travail associatif comme un poste, mais comme une croisade personnelle pour l'élévation des consciences.</li>
+              <li><strong>Action :</strong> J'agis là où les autres n'osent pas. J'anime des réunions avec un charisme absolument aveuglant.</li>
+              <li><strong>Compassion :</strong> Dans ma grande magnanimité, j'accepte généreusement de partager mon précieux temps avec les mortels.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════ -->
+    <!-- SLIDE 9 : L'Entretien du Génie                -->
+    <!-- ══════════════════════════════════════════════ -->
+    <section class="slide" id="slide-9">
+      <div class="slide-content">
+        <h2 class="animate-down" style="--delay: 0.1s; text-align: center; margin-bottom: 1rem;">
+          L'Entretien du <span class="text-gradient-secondary">Génie</span>
+        </h2>
+        <div class="card-grid-3 animate-scale" style="--delay: 0.3s;">
+          <div class="custom-card">
+            <div class="custom-card-icon">🏔️</div>
+            <h3>L'Ascension</h3>
+            <p>
+              La Randonnée. Parcourir les sommets est fondamental : c'est le seul moyen physique de me rappeler à quel point je suis au-dessus du reste du monde.
+            </p>
+          </div>
+          <div class="custom-card">
+            <div class="custom-card-icon">🎲</div>
+            <h3>Le Maître du Jeu</h3>
+            <p>
+              Jeux & RPG. J'affectionne ces univers virtuels car ce sont les rares endroits où l'on respecte mon autorité absolue sans broncher.
+            </p>
+          </div>
+          <div class="custom-card">
+            <div class="custom-card-icon">📖</div>
+            <h3>Soif de Savoir</h3>
+            <p>
+              M'instruire. Mon cerveau est une éponge divine. L'apprentissage n'est pas un hobby, c'est un devoir envers l'humanité toute entière.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════ -->
+    <!-- SLIDE 10 : Le Grand Quiz (4 questions)        -->
+    <!-- ══════════════════════════════════════════════ -->
+    <section class="slide" id="slide-10">
       <div class="slide-content" style="align-items: center;">
-        <h2 class="animate-down" style="--delay: 0.1s; margin-bottom: 1.5rem; text-align: center;">
-          Le Grand <span class="text-gradient">Quiz</span>
+        <div class="mono-tag animate-down" style="--delay: 0.05s; margin-bottom: 0.8rem;">Examen Final · 4 Questions</div>
+        <h2 class="animate-down" style="--delay: 0.15s; margin-bottom: 1.2rem; text-align: center;">
+          Le Grand <span class="text-gradient">Quiz</span> 🎓
         </h2>
         <div class="quiz-container animate-scale" style="--delay: 0.3s;" id="quizContainer">
           <div class="quiz-header">
             <div class="quiz-progress-text">
-              <span id="quizQuestionNum">Question 1 / 5</span>
+              <span id="quizQuestionNum">Question 1 / 4</span>
               <span id="quizPercent">0%</span>
             </div>
             <div class="quiz-progress-track">
@@ -294,42 +335,30 @@
             </div>
           </div>
           <div id="quizQuestion" class="quiz-question">
-            Préparez-vous à tester vos connaissances sur mon histoire !
+            Préparez-vous — seuls les vrais connaisseurs survivront.
           </div>
           <div id="quizOptions" class="quiz-options">
-            <!-- Dynamically populated options -->
+            <!-- Dynamically populated -->
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SLIDE 9: Contact -->
-    <section class="slide" id="slide-9">
-      <div class="slide-content connect-content">
-        <h2 class="animate-scale" style="--delay: 0.1s;">
-          Restons en <span class="text-gradient">Contact</span>
+    <!-- ══════════════════════════════════════════════ -->
+    <!-- SLIDE 11 : Conclusion & Applaudissements      -->
+    <!-- ══════════════════════════════════════════════ -->
+    <section class="slide" id="slide-11">
+      <div class="slide-content connect-content" style="align-items: center; text-align: center;">
+        <h2 class="animate-scale" style="--delay: 0.2s; font-size: clamp(2.2rem, 5vw, 4.5rem); margin-bottom: 1rem;">
+          Merci.
         </h2>
-        <p class="animate-up" style="--delay: 0.3s; font-size: 1.3rem;">
-          Merci d'avoir pris le temps de parcourir mes souvenirs et mon parcours ! J'adorerais discuter de projets web, de design ou simplement de voyages.
+        <h3 class="animate-up" style="--delay: 0.4s; font-size: 1.8rem; font-weight: 600; color: #ffb703; margin-bottom: 1.5rem;">
+          Vous pouvez maintenant m'applaudir.
+        </h3>
+
+        <p class="animate-up" style="--delay: 0.5s; font-size: 1rem; max-width: 620px; opacity: 0.75; margin-bottom: 2rem; font-style: italic;">
+          (Note : Pour la session Q&A, je n'accepte que les compliments et les flatteries.)
         </p>
-        
-        <div class="social-links animate-up" style="--delay: 0.5s;">
-          <!-- GitHub Link -->
-          <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-btn">
-            <svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482C19.138 20.197 22 16.44 22 12.017 22 6.484 17.522 2 12 2z"/></svg>
-            GitHub
-          </a>
-          <!-- LinkedIn Link -->
-          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-btn">
-            <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-            LinkedIn
-          </a>
-          <!-- Email Link -->
-          <a href="mailto:hello@example.com" class="social-btn">
-            <svg viewBox="0 0 24 24"><path d="M12 12.713L4.41 7.29A2 2 0 016 7h12a2 2 0 011.59.29L12 12.713zM21 9.287L12.74 15.2a1.2 1.2 0 01-1.48 0L3 9.287V17a2 2 0 002 2h14a2 2 0 002-2V9.287z"/></svg>
-            Email
-          </a>
-        </div>
       </div>
     </section>
 
@@ -338,19 +367,22 @@
   <!-- Navigation Control Bar -->
   <footer class="controls-bar">
     <button id="prevBtn" class="nav-btn" aria-label="Diapositive précédente">
-      <svg viewBox="0 0 24 24"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/></svg>
+      <svg viewBox="0 0 24 24">
+        <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" />
+      </svg>
     </button>
-    
+
     <div class="slide-indicator">
       <span id="currentSlide" class="current">1</span>
-      <span class="total">/ 9</span>
+      <span class="total">/ 11</span>
     </div>
-    
+
     <button id="nextBtn" class="nav-btn" aria-label="Diapositive suivante">
-      <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+      <svg viewBox="0 0 24 24">
+        <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z" />
+      </svg>
     </button>
   </footer>
-
   <!-- Floating Keyboard Hint -->
   <div class="keyboard-hint">
     <span>Utilisez <kbd>←</kbd> <kbd>→</kbd> ou <kbd>Espace</kbd> pour naviguer</span>
@@ -361,7 +393,10 @@
     <div class="lightbox-backdrop" id="lightboxBackdrop"></div>
     <div class="lightbox-panel">
       <button class="lightbox-close" id="lightboxClose" aria-label="Fermer">
-        <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        <svg viewBox="0 0 24 24">
+          <path
+            d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+        </svg>
       </button>
       <div class="lightbox-img-wrapper">
         <img id="lightboxImg" class="lightbox-img" src="" alt="">
@@ -371,7 +406,24 @@
     </div>
   </div>
 
+  <!-- Person Photo Modal (Slide 3) -->
+  <div id="personModal" class="person-modal" role="dialog" aria-modal="true">
+    <div class="person-modal-backdrop" id="personModalBackdrop"></div>
+    <div class="person-modal-card" id="personModalCard">
+      <div class="person-modal-img-wrapper">
+        <img id="personModalImg" src="" alt="" class="person-modal-img">
+        <div class="person-modal-placeholder" id="personModalPlaceholder">
+          <span class="person-modal-ph-icon">📷</span>
+          <span class="person-modal-ph-text" id="personModalName"></span>
+        </div>
+      </div>
+      <div class="person-modal-label" id="personModalLabel"></div>
+      <div class="person-modal-hint">Cliquez n'importe où pour fermer</div>
+    </div>
+  </div>
+
   <!-- Javascript Core Engine -->
   <script src="app.js"></script>
 </body>
+
 </html>
