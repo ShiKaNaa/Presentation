@@ -293,16 +293,16 @@ document.addEventListener('DOMContentLoaded', () => {
     donutAnimated = true;
 
     const talent = document.querySelector('.seg-talent');
-    const cafe   = document.querySelector('.seg-cafe');
+    const cafe = document.querySelector('.seg-cafe');
     if (!talent || !cafe) return;
 
     // Start from 0 and animate to final values
     const circumference = 2 * Math.PI * 70; // r=70 → ~439.8
     const talentPct = 0.98;
-    const cafePct   = 0.02;
+    const cafePct = 0.02;
 
     talent.style.transition = 'stroke-dasharray 1.6s cubic-bezier(0.4, 0, 0.2, 1)';
-    cafe.style.transition   = 'stroke-dasharray 1.6s cubic-bezier(0.4, 0, 0.2, 1), stroke-dashoffset 1.6s cubic-bezier(0.4, 0, 0.2, 1)';
+    cafe.style.transition = 'stroke-dasharray 1.6s cubic-bezier(0.4, 0, 0.2, 1), stroke-dashoffset 1.6s cubic-bezier(0.4, 0, 0.2, 1)';
 
     // Set start state
     talent.setAttribute('stroke-dasharray', `0 ${circumference}`);
@@ -324,7 +324,7 @@ document.addEventListener('DOMContentLoaded', () => {
       question: "Quel est mon niveau officiel au jeu de Go ?",
       options: [
         "10 kyu",
-        "3 kyu ffg",
+        "3 kyu",
         "1 Dan",
         "5 kyu"
       ],
@@ -493,7 +493,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const AudioCtx = window.AudioContext || window.webkitAudioContext;
       if (!AudioCtx) return;
       const ctx = new AudioCtx();
-      
+
       // Clap Sound Generator (White noise bandpass filtered with exponential gain)
       function createClap() {
         const bufferSize = ctx.sampleRate * 0.18;
@@ -502,54 +502,54 @@ document.addEventListener('DOMContentLoaded', () => {
         for (let i = 0; i < bufferSize; i++) {
           data[i] = Math.random() * 2 - 1;
         }
-        
+
         const source = ctx.createBufferSource();
         source.buffer = buffer;
-        
+
         const filter = ctx.createBiquadFilter();
         filter.type = 'bandpass';
         filter.frequency.value = 1000 + Math.random() * 200;
         filter.Q.value = 2.5;
-        
+
         const gain = ctx.createGain();
         gain.gain.setValueAtTime(0.25, ctx.currentTime);
         gain.gain.exponentialRampToValueAtTime(0.005, ctx.currentTime + 0.15);
-        
+
         source.connect(filter);
         filter.connect(gain);
         gain.connect(ctx.destination);
         source.start();
       }
-      
+
       // Kitsh brass OSC note
       function playNote(freq, start, duration) {
         const osc = ctx.createOscillator();
         const gain = ctx.createGain();
-        
+
         osc.type = 'sawtooth';
         osc.frequency.setValueAtTime(freq, ctx.currentTime + start);
-        
+
         gain.gain.setValueAtTime(0, ctx.currentTime + start);
         gain.gain.linearRampToValueAtTime(0.12, ctx.currentTime + start + 0.04);
         gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + start + duration - 0.02);
-        
+
         osc.connect(gain);
         gain.connect(ctx.destination);
         osc.start(ctx.currentTime + start);
         osc.stop(ctx.currentTime + start + duration);
       }
-      
+
       // Retro kitsch fanfare melody: C4, E4, G4, C5 chord progression
       const melody = [261.63, 329.63, 392.00, 523.25];
       melody.forEach((freq, idx) => {
         playNote(freq, idx * 0.12, 1.0);
       });
-      
+
       // Synthesize crowd claps for 3.5 seconds
       for (let i = 0; i < 70; i++) {
         const delay = Math.random() * 3.3;
         setTimeout(() => {
-          try { createClap(); } catch (err) {}
+          try { createClap(); } catch (err) { }
         }, delay * 1000);
       }
     } catch (e) {
@@ -562,11 +562,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --- PHOTO LIGHTBOX ---
   function initLightbox() {
-    const lightbox      = document.getElementById('lightbox');
-    const lightboxImg   = document.getElementById('lightboxImg');
-    const lightboxCap   = document.getElementById('lightboxCaption');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxCap = document.getElementById('lightboxCaption');
     const lightboxClose = document.getElementById('lightboxClose');
-    const backdrop      = document.getElementById('lightboxBackdrop');
+    const backdrop = document.getElementById('lightboxBackdrop');
 
     let isOpen = false;
 
@@ -590,10 +590,18 @@ document.addEventListener('DOMContentLoaded', () => {
       const card = e.target.closest('.polaroid-card');
       if (!card) return;
 
-      const img     = card.querySelector('img');
-      const caption = card.querySelector('.polaroid-caption');
-      if (img) {
-        openLightbox(img.src, img.alt, caption ? caption.textContent : '');
+      // Si la carte a un data-swap-src, ouvrir l'image de swap (ex: neige.jpg)
+      const swapSrc = card.dataset.swapSrc;
+      const swapCaption = card.dataset.swapCaption;
+
+      if (swapSrc) {
+        openLightbox(swapSrc, swapCaption || '', swapCaption || '');
+      } else {
+        const img = card.querySelector('img');
+        const caption = card.querySelector('.polaroid-caption');
+        if (img) {
+          openLightbox(img.src, img.alt, caption ? caption.textContent : '');
+        }
       }
     });
 
@@ -612,12 +620,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --- PERSON PHOTO MODAL (Slide 3) ---
   function initPersonModal() {
-    const modal      = document.getElementById('personModal');
-    const modalCard  = document.getElementById('personModalCard');
-    const modalImg   = document.getElementById('personModalImg');
-    const modalName  = document.getElementById('personModalName');
+    const modal = document.getElementById('personModal');
+    const modalCard = document.getElementById('personModalCard');
+    const modalImg = document.getElementById('personModalImg');
+    const modalName = document.getElementById('personModalName');
     const modalLabel = document.getElementById('personModalLabel');
-    const backdrop   = document.getElementById('personModalBackdrop');
+    const backdrop = document.getElementById('personModalBackdrop');
 
     if (!modal) return;
 
@@ -628,7 +636,7 @@ document.addEventListener('DOMContentLoaded', () => {
       modalLabel.textContent = label;
 
       const testImg = new Image();
-      testImg.onload  = () => { modalImg.src = photoSrc; };
+      testImg.onload = () => { modalImg.src = photoSrc; };
       testImg.onerror = () => { modalImg.src = ''; };
       testImg.src = photoSrc;
 
@@ -648,9 +656,9 @@ document.addEventListener('DOMContentLoaded', () => {
       const card = e.target.closest('.person-card');
       if (!card) return;
 
-      const photo  = card.dataset.photo  || '';
+      const photo = card.dataset.photo || '';
       const person = card.dataset.person || '';
-      const label  = card.dataset.label  || '';
+      const label = card.dataset.label || '';
       openPersonModal(photo, person, label);
     });
 

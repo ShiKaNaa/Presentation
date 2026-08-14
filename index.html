@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description"
-    content="Une étude de cas sur la perfection absolue. Raphaël : l'évolution d'une légende (199X–2026).">
+    content="Une étude de cas sur la perfection absolue. Raphaël : l'évolution d'une légende (1993–2026).">
   <title>Raphaël | Une Étude de Cas sur la Perfection</title>
 
   <!-- Main Stylesheet -->
@@ -49,7 +49,7 @@
           Moi : L'Évolution d'une <span class="text-gradient">Légende</span>
         </h1>
         <p class="hero-subtitle animate-up" style="--delay: 0.4s;">
-          Comment je suis devenu la personne préférée de ma mère (199X - 2026)
+          Comment je suis devenu la personne préférée de ma maman (1993 - 2026)
         </p>
         <div class="animate-up" style="--delay: 0.6s;">
           <button class="nav-btn next-trigger" aria-label="Commencer la présentation">
@@ -73,7 +73,8 @@
               Une évidence précoce
             </h3>
             <p>
-              Dès le plus jeune âge, le potentiel de grandeur était indéniable. Alors que les autres enfants mangeaient du sable, j'analysais déjà les failles du système éducatif.
+              Dès le plus jeune âge, le potentiel de grandeur était indéniable. Alors que les autres enfants mangeaient
+              du sable, j'analysais déjà les failles du système éducatif.
             </p>
             <ul>
               <li>Un charisme naturel (même en salopette)</li>
@@ -82,9 +83,14 @@
             </ul>
           </div>
           <div class="animate-right" style="--delay: 0.3s;">
-            <div class="photo-placeholder-dashed">
-              <div class="photo-placeholder-icon">📷</div>
-              <div class="photo-placeholder-text">[Insérez votre photo d'enfance mignonne ici]</div>
+            <!-- enfant.jpg → au clic, affiche neige.jpg dans la lightbox -->
+            <div class="polaroid-card" data-swap-src="images/neige.jpg?t=final" data-swap-caption="Dans la neige ❄️"
+              title="Cliquez pour voir la suite !">
+              <div class="polaroid-img-wrapper">
+                <img src="images/enfant.jpg?t=final" alt="Raphaël enfant" loading="lazy">
+                <div class="polaroid-swap-hint"></div>
+              </div>
+              <div class="polaroid-caption">Raphaël enfant 👶</div>
             </div>
           </div>
         </div>
@@ -100,27 +106,33 @@
           Le Premier Cercle de <span class="text-gradient">Fidèles</span>
         </h2>
         <div class="card-grid-3 animate-scale" style="--delay: 0.3s;">
-          <div class="custom-card person-card" data-person="Les Créateurs" data-photo="images/parents.jpg" data-label="Mes parents — les géniteurs du chef-d'œuvre" style="cursor: pointer;">
+          <div class="custom-card person-card" data-person="Les Créateurs" data-photo="images/famille-old.jpg"
+            data-label="Mes parents — les géniteurs du chef-d'œuvre" style="cursor: pointer;">
             <div class="custom-card-icon">👪</div>
             <h3>Les Créateurs</h3>
             <p>
-              Mes parents. Ils ont eu l'immense privilège de façonner ce chef-d'œuvre. Je les remercie quotidiennement pour leurs excellents gènes.
+              Mes parents. Ils ont eu l'immense privilège de façonner ce chef-d'œuvre. Je les remercie quotidiennement
+              pour leurs excellents gènes.
             </p>
             <div class="card-photo-hint">📸 Cliquez pour voir</div>
           </div>
-          <div class="custom-card person-card" data-person="Le Premier Disciple" data-photo="images/soeur.jpg" data-label="Ma sœur — la première admiratrice" style="cursor: pointer;">
+          <div class="custom-card person-card" data-person="Le Premier Disciple" data-photo="images/soeurette.jpg"
+            data-label="Ma sœur — la première admiratrice" style="cursor: pointer;">
             <div class="custom-card-icon">👥</div>
             <h3>Le Premier Disciple</h3>
             <p>
-              Ma sœur. Grandir dans mon ombre lumineuse n'a pas dû être facile tous les jours, mais elle a survécu avec brio. Une excellente spectatrice de ma vie.
+              Ma sœur. Grandir dans mon ombre lumineuse n'a pas dû être facile tous les jours, mais elle a survécu avec
+              brio. Une excellente spectatrice de ma vie.
             </p>
             <div class="card-photo-hint">📸 Cliquez pour voir</div>
           </div>
-          <div class="custom-card person-card" data-person="L'Élue" data-photo="images/copine.jpg" data-label="Ma copine — l'heureuse élue" style="cursor: pointer;">
+          <div class="custom-card person-card" data-person="L'Élue" data-photo="images/carnaval-dunkerque.jpg"
+            data-label="Ma copine — l'heureuse élue" style="cursor: pointer;">
             <div class="custom-card-icon">💍</div>
             <h3>L'Élue</h3>
             <p>
-              Ma copine. Celle qui a eu l'audace et le bon goût absolu de partager ma vie. Elle a su reconnaître le génie sous sa forme la plus pure.
+              Ma copine. Celle qui a eu l'audace et le bon goût absolu de partager ma vie. Elle a su reconnaître le
+              génie sous sa forme la plus pure.
             </p>
             <div class="card-photo-hint">📸 Cliquez pour voir</div>
           </div>
@@ -146,9 +158,13 @@
               Une scolarité... complexe
             </h3>
             <ul>
-              <li><strong>Le fardeau du génie :</strong> L'Éducation Nationale n'était tout simplement pas prête pour ma vision avant-gardiste du monde.</li>
-              <li><strong>Des notes trompeuses :</strong> Mes bulletins scolaires ne reflétaient en aucun cas des lacunes, mais plutôt mon refus catégorique de me conformer à la médiocrité.</li>
-              <li><strong>La preuve historique :</strong> Einstein a eu de mauvaises notes. Moi aussi. Coïncidence ? Je ne crois pas.</li>
+              <li><strong>Le fardeau du génie :</strong> L'Éducation Nationale n'était tout simplement pas prête pour ma
+                vision avant-gardiste du monde.</li>
+              <li><strong>Des notes trompeuses :</strong> Mes bulletins scolaires n'étaient que le reflet de mon
+                perfectionnisme,
+                et mon refus catégorique de me conformer à la médiocrité. C'est pourquoi j'ai sauté une classe</li>
+              <li><strong>L'épreuve :</strong> Malgré cela, tout cela n'est pas si simple et ma scolarité a été parsemé
+                d'embuches</li>
             </ul>
           </div>
         </div>
@@ -166,24 +182,22 @@
         <div class="capillaire-grid animate-scale" style="--delay: 0.3s;">
           <div class="capillaire-card">
             <div class="photo-placeholder-dashed">
-              <div class="photo-placeholder-icon">✂️</div>
-              <div class="photo-placeholder-text">[Photo : Coupe douteuse 1]</div>
+              <img src="images/ado.jpg" alt="Raphaël ado" loading="lazy">
             </div>
             <h3>L'Audace</h3>
             <p>La période où j'ai confondu "style rebelle" et "erreur de parcours".</p>
           </div>
           <div class="capillaire-card">
             <div class="photo-placeholder-dashed">
-              <div class="photo-placeholder-icon">👨</div>
-              <div class="photo-placeholder-text">[Photo : Tentative Moustache]</div>
+              <img src="images/pabo.jpg" alt="Raphaël pablo" loading="lazy">
             </div>
             <h3>Le Visionnaire</h3>
             <p>La fameuse période moustache. J'avais juste 15 ans d'avance sur la mode.</p>
+            <!-- Faire un switch ici avec pablo.jpg au bout de 10sec -->
           </div>
           <div class="capillaire-card">
             <div class="photo-placeholder-dashed">
-              <div class="photo-placeholder-icon">✨</div>
-              <div class="photo-placeholder-text">[Photo : Cheveux trop longs]</div>
+              <img src="images/charmeur.jpg" alt="Raphaël récidive calvitie" loading="lazy">
             </div>
             <h3>L'Incompris</h3>
             <p>La gravité n'avait aucune emprise sur ces cheveux. Mon charisme était en phase de chargement.</p>
@@ -204,15 +218,18 @@
               L'art de s'aimer (pour le bien de tous)
             </h3>
             <p>
-              Si vous pensez que j'ai un ego surdimensionné, sachez que je ne fais que suivre les préceptes du grand philosophe David Hume.
+              Si vous pensez que j'ai un ego surdimensionné, sachez que je ne fais que suivre les préceptes du grand
+              philosophe David Hume.
             </p>
             <p>
-              Selon lui, l'amour-propre n'est pas un défaut, mais un moteur indispensable. C'est grâce à la fierté que l'on accomplit de grandes choses pour la société.
+              Selon lui, l'amour-propre n'est pas un défaut, mais un moteur indispensable. C'est grâce à la fierté que
+              l'on accomplit de grandes choses pour la société.
             </p>
           </div>
           <div class="animate-right" style="--delay: 0.3s;">
             <div class="quote-card">
-              "Une juste appréciation de sa propre valeur n'est pas un vice, mais le fondement même de la vertu et du mérite."
+              "Une juste appréciation de sa propre valeur n'est pas un vice, mais le fondement même de la vertu et du
+              mérite."
               <span class="quote-author">— (À peu près) David Hume</span>
             </div>
           </div>
@@ -247,7 +264,8 @@
             <div class="custom-card-icon">🧘</div>
             <h3>3. Rester humble</h3>
             <p>
-              L'étape la plus difficile. Je m'entraîne chaque jour devant mon miroir à faire semblant d'être impressionné par les autres.
+              L'étape la plus difficile. Je m'entraîne chaque jour devant mon miroir à faire semblant d'être
+              impressionné par les autres.
             </p>
           </div>
         </div>
@@ -263,7 +281,7 @@
           <div class="animate-left" style="--delay: 0.1s;">
             <div class="photo-placeholder-dashed">
               <div class="photo-placeholder-icon">💼</div>
-              <div class="photo-placeholder-text">[Insérez une photo de vous au travail/associatif]</div>
+              <div class="photo-placeholder-text">pole-engagement-rouge.jpg</div>
             </div>
           </div>
           <div class="childhood-text animate-right" style="--delay: 0.3s;">
@@ -272,9 +290,12 @@
               Plus qu'un métier, un sacerdoce
             </h3>
             <ul>
-              <li><strong>Vision :</strong> Je ne vois pas mon travail associatif comme un poste, mais comme une croisade personnelle pour l'élévation des consciences.</li>
-              <li><strong>Action :</strong> J'agis là où les autres n'osent pas. J'anime des réunions avec un charisme absolument aveuglant.</li>
-              <li><strong>Compassion :</strong> Dans ma grande magnanimité, j'accepte généreusement de partager mon précieux temps avec les mortels.</li>
+              <li><strong>Vision :</strong> Je ne vois pas mon travail associatif comme un poste, mais comme une
+                croisade personnelle pour l'élévation des consciences.</li>
+              <li><strong>Action :</strong> J'agis là où les autres n'osent pas. J'anime des réunions avec un charisme
+                absolument aveuglant.</li>
+              <li><strong>Compassion :</strong> Dans ma grande magnanimité, j'accepte généreusement de partager mon
+                précieux temps avec les mortels.</li>
             </ul>
           </div>
         </div>
@@ -294,21 +315,24 @@
             <div class="custom-card-icon">🏔️</div>
             <h3>L'Ascension</h3>
             <p>
-              La Randonnée. Parcourir les sommets est fondamental : c'est le seul moyen physique de me rappeler à quel point je suis au-dessus du reste du monde.
+              La Randonnée. Parcourir les sommets est fondamental : c'est le seul moyen physique de me rappeler à quel
+              point je suis au-dessus du reste du monde.
             </p>
           </div>
           <div class="custom-card">
             <div class="custom-card-icon">🎲</div>
             <h3>Le Maître du Jeu</h3>
             <p>
-              Jeux & RPG. J'affectionne ces univers virtuels car ce sont les rares endroits où l'on respecte mon autorité absolue sans broncher.
+              Jeux & RPG. J'affectionne ces univers virtuels car ce sont les rares endroits où l'on respecte mon
+              autorité absolue sans broncher.
             </p>
           </div>
           <div class="custom-card">
             <div class="custom-card-icon">📖</div>
             <h3>Soif de Savoir</h3>
             <p>
-              M'instruire. Mon cerveau est une éponge divine. L'apprentissage n'est pas un hobby, c'est un devoir envers l'humanité toute entière.
+              M'instruire. Mon cerveau est une éponge divine. L'apprentissage n'est pas un hobby, c'est un devoir envers
+              l'humanité toute entière.
             </p>
           </div>
         </div>
@@ -320,7 +344,8 @@
     <!-- ══════════════════════════════════════════════ -->
     <section class="slide" id="slide-10">
       <div class="slide-content" style="align-items: center;">
-        <div class="mono-tag animate-down" style="--delay: 0.05s; margin-bottom: 0.8rem;">Examen Final · 4 Questions</div>
+        <div class="mono-tag animate-down" style="--delay: 0.05s; margin-bottom: 0.8rem;">Examen Final · 4 Questions
+        </div>
         <h2 class="animate-down" style="--delay: 0.15s; margin-bottom: 1.2rem; text-align: center;">
           Le Grand <span class="text-gradient">Quiz</span> 🎓
         </h2>
@@ -352,13 +377,32 @@
         <h2 class="animate-scale" style="--delay: 0.2s; font-size: clamp(2.2rem, 5vw, 4.5rem); margin-bottom: 1rem;">
           Merci.
         </h2>
-        <h3 class="animate-up" style="--delay: 0.4s; font-size: 1.8rem; font-weight: 600; color: #ffb703; margin-bottom: 1.5rem;">
+        <h3 class="animate-up"
+          style="--delay: 0.4s; font-size: 1.8rem; font-weight: 600; color: #ffb703; margin-bottom: 1.5rem;">
           Vous pouvez maintenant m'applaudir.
         </h3>
 
-        <p class="animate-up" style="--delay: 0.5s; font-size: 1rem; max-width: 620px; opacity: 0.75; margin-bottom: 2rem; font-style: italic;">
+        <p class="animate-up"
+          style="--delay: 0.5s; font-size: 1rem; max-width: 620px; opacity: 0.75; margin-bottom: 1.5rem; font-style: italic;">
           (Note : Pour la session Q&A, je n'accepte que les compliments et les flatteries.)
         </p>
+
+        <!-- Galerie chats -->
+        <div class="photo-gallery animate-up" style="--delay: 0.7s;">
+          <div class="polaroid-card" title="Wiwi">
+            <div class="polaroid-img-wrapper">
+              <img src="images/wiwi.jpg?t=final" alt="Wiwi" loading="lazy">
+            </div>
+            <div class="polaroid-caption">Wiwi 🐱</div>
+          </div>
+
+          <div class="polaroid-card" title="Super Crocmou">
+            <div class="polaroid-img-wrapper">
+              <img src="images/super-crocmou.jpg?v=portrait" alt="Super Crocmou" loading="lazy">
+            </div>
+            <div class="polaroid-caption">Super Crocmou 🐱</div>
+          </div>
+        </div>
       </div>
     </section>
 
