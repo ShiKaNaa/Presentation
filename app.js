@@ -16,6 +16,38 @@ document.addEventListener('DOMContentLoaded', () => {
   let touchEndX = 0;
   const minSwipeDistance = 50;
 
+  // Visionnaire Photo Swap Variables
+  let visionnaireTimer = null;
+  let visionnaireSwapped = false;
+
+  function startVisionnaireSwap() {
+    if (visionnaireSwapped) return;
+    clearVisionnaireSwap();
+
+    visionnaireTimer = setTimeout(() => {
+      const img = document.getElementById('visionnaire-photo');
+      if (!img) return;
+
+      // Fade out
+      img.style.opacity = '0';
+
+      // After fade-out, swap src and fade back in
+      setTimeout(() => {
+        img.src = 'images/pablo.jpg';
+        img.alt = 'Pablo Escobar – la ressemblance';
+        img.style.opacity = '1';
+        visionnaireSwapped = true;
+      }, 600);
+    }, 10000); // 10 seconds
+  }
+
+  function clearVisionnaireSwap() {
+    if (visionnaireTimer) {
+      clearTimeout(visionnaireTimer);
+      visionnaireTimer = null;
+    }
+  }
+
   /**
    * Navigate to a slide by index
    * @param {number} index - Index of slide (0-based)
@@ -70,6 +102,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // Animate the donut chart when reaching slide-4
     if (slides[currentSlideIndex].id === 'slide-4') {
       animateDonut();
+    }
+
+    // Photo swap on slide-5: pabo.jpg → pablo.jpg after 10 seconds
+    if (slides[currentSlideIndex].id === 'slide-5') {
+      startVisionnaireSwap();
+    } else {
+      clearVisionnaireSwap();
     }
   }
 
@@ -350,10 +389,11 @@ document.addEventListener('DOMContentLoaded', () => {
       options: [
         "David Hume",
         "Ma mère",
-        "Moi évidemment",
         "Einstein"
       ],
-      answer: 2
+      answer: null,  // free-text question — validated separately
+      freeText: true,
+      freeTextAnswer: "moi"
     }
   ];
 
@@ -386,13 +426,69 @@ document.addEventListener('DOMContentLoaded', () => {
     quizQuestion.textContent = currentQ.question;
 
     quizOptions.innerHTML = '';
-    currentQ.options.forEach((option, idx) => {
-      const btn = document.createElement('button');
-      btn.className = 'quiz-option-btn';
-      btn.textContent = option;
-      btn.addEventListener('click', () => handleQuizAnswer(idx));
-      quizOptions.appendChild(btn);
-    });
+
+    if (currentQ.freeText) {
+      // Render a text composer input + submit button
+      const wrapper = document.createElement('div');
+      wrapper.className = 'quiz-free-text-wrapper';
+
+      // Multiple choice options (without the free-text answer)
+      currentQ.options.forEach((option, idx) => {
+        const btn = document.createElement('button');
+        btn.className = 'quiz-option-btn';
+        btn.textContent = option;
+        btn.addEventListener('click', () => handleQuizAnswer(idx, false));
+        wrapper.appendChild(btn);
+      });
+
+      // Composer row — hidden until user clicks on empty space
+      const composerRow = document.createElement('div');
+      composerRow.className = 'quiz-composer-row quiz-composer-row--hidden';
+
+      const input = document.createElement('input');
+      input.type = 'text';
+      input.className = 'quiz-composer-input';
+      input.placeholder = 'Écrivez votre réponse…';
+      input.id = 'quizFreeInput';
+      input.setAttribute('autocomplete', 'off');
+
+      const submitBtn = document.createElement('button');
+      submitBtn.className = 'quiz-composer-submit';
+      submitBtn.textContent = '✓ Valider';
+
+      const validate = () => {
+        const val = input.value.trim();
+        if (!val) return;
+        const isCorrect = val.toLowerCase() === currentQ.freeTextAnswer.toLowerCase();
+        handleQuizFreeText(isCorrect, wrapper, input, submitBtn);
+      };
+
+      submitBtn.addEventListener('click', (e) => { e.stopPropagation(); validate(); });
+      input.addEventListener('click', (e) => e.stopPropagation());
+      input.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') { e.preventDefault(); validate(); }
+      });
+
+      composerRow.appendChild(input);
+      composerRow.appendChild(submitBtn);
+      wrapper.appendChild(composerRow);
+      quizOptions.appendChild(wrapper);
+
+      // Click on empty space in wrapper → reveal composer
+      wrapper.addEventListener('click', (e) => {
+        if (e.target.closest('.quiz-option-btn') || e.target.closest('.quiz-composer-row')) return;
+        composerRow.classList.remove('quiz-composer-row--hidden');
+        setTimeout(() => input.focus(), 80);
+      });
+    } else {
+      currentQ.options.forEach((option, idx) => {
+        const btn = document.createElement('button');
+        btn.className = 'quiz-option-btn';
+        btn.textContent = option;
+        btn.addEventListener('click', () => handleQuizAnswer(idx));
+        quizOptions.appendChild(btn);
+      });
+    }
   }
 
   function handleQuizAnswer(selectedIdx) {
@@ -409,6 +505,27 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     if (selectedIdx === currentQ.answer) quizScore++;
+
+    setTimeout(() => {
+      currentQuestionIndex++;
+      renderQuizQuestion();
+    }, 1500);
+  }
+
+  function handleQuizFreeText(isCorrect, wrapper, input, submitBtn) {
+    // Disable all buttons and input
+    wrapper.querySelectorAll('.quiz-option-btn').forEach(btn => btn.classList.add('disabled'));
+    input.disabled = true;
+    submitBtn.disabled = true;
+
+    // Show feedback on composer row
+    const composerRow = wrapper.querySelector('.quiz-composer-row');
+    composerRow.classList.add(isCorrect ? 'composer-correct' : 'composer-incorrect');
+    input.classList.add(isCorrect ? 'correct' : 'incorrect');
+    submitBtn.textContent = isCorrect ? '✓' : '✗';
+    submitBtn.classList.add(isCorrect ? 'correct' : 'incorrect');
+
+    if (isCorrect) quizScore++;
 
     setTimeout(() => {
       currentQuestionIndex++;
@@ -676,4 +793,5 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   initPersonModal();
+
 });
